@@ -1,8 +1,8 @@
 "use client";
 
 const speakers = [
-  { name: "Arjun Mehta", role: "Co-founder, Razorpay", topic: "Building for Bharat", initials: "AM", hue: 220 },
-  { name: "Priya Nair", role: "VP Engineering, Zepto", topic: "Scaling to 10M users", initials: "PN", hue: 260 },
+  { name: "Kunal Kumar", role: "Co-founder,PulseOps", topic: "Building for Bharat", initials: "KK", hue: 220 },
+  { name: "Shreyansh Srivastava", role: "Co-founder,PulseOps", topic: "Scaling to 10M users", initials: "SS", hue: 260 },
   { name: "Rahul Singh", role: "Partner, Sequoia Capital", topic: "What investors miss", initials: "RS", hue: 200 },
   { name: "Kiran Desai", role: "CTO, Meesho", topic: "Tech debt is a feature", initials: "KD", hue: 180 },
   { name: "Ananya Rao", role: "Founder, Nua", topic: "D2C playbook 2025", initials: "AR", hue: 240 },
@@ -34,7 +34,7 @@ export default function Speakers() {
             paddingBottom: 2,
           }}>
             Full lineup
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </a>
         </div>
 
