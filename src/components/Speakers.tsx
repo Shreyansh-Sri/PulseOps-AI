@@ -3,10 +3,10 @@
 const speakers = [
   { name: "Kunal Kumar", role: "Co-founder,PulseOps", topic: "Building for Bharat", initials: "KK", hue: 220 },
   { name: "Shreyansh Srivastava", role: "Co-founder,PulseOps", topic: "Scaling to 10M users", initials: "SS", hue: 260 },
-  { name: "Rahul Singh", role: "Partner, Sequoia Capital", topic: "What investors miss", initials: "RS", hue: 200 },
-  { name: "Kiran Desai", role: "CTO, Meesho", topic: "Tech debt is a feature", initials: "KD", hue: 180 },
-  { name: "Ananya Rao", role: "Founder, Nua", topic: "D2C playbook 2025", initials: "AR", hue: 240 },
-  { name: "Vikram Patel", role: "CEO, PhysicsWallah", topic: "EdTech at scale", initials: "VP", hue: 210 },
+  { name: "Ankit Raj", role: "Partner, Manager", topic: "What investors miss", initials: "RS", hue: 200 },
+  { name: "Nishit Sharma", role: "CTO, Meesho", topic: "Tech debt is a feature", initials: "KD", hue: 180 },
+  { name: "Ayush Mishra", role: "Founder, Nua", topic: "D2C playbook 2025", initials: "AR", hue: 240 },
+  { name: "Manya Gupta", role: "CEO, PhysicsWallah", topic: "EdTech at scale", initials: "VP", hue: 210 },
 ];
 
 export default function Speakers() {
