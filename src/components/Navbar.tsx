@@ -42,13 +42,13 @@ export default function Navbar() {
           <span style={{ color: "var(--blue)" }}>Pulse</span>
           <span style={{ color: "var(--text)" }}>Ops</span>
           <span style={{
-            fontSize: 11,
-            color: "var(--muted)",
+            fontSize: 18,
+            color: "var(--blue)",
             marginLeft: 8,
-            fontWeight: 400,
+            fontWeight: 700,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
-          }}>Summit</span>
+          }}>AI</span>
         </div>
 
         {/* Desktop nav */}

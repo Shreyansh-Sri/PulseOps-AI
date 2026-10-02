@@ -15,7 +15,7 @@ export default function Footer() {
 
           {[
             {
-              title: "Summit", links: ["About", "Speakers", "Schedule", "Events"]
+              title: "About", links: ["About", "Speakers", "Schedule", "Events"]
             },
             {
               title: "Participate", links: ["Register", "IdeaForge", "Volunteer", "Sponsor"]
