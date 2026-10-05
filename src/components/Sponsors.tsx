@@ -2,44 +2,67 @@
 
 const tiers = [
   {
-    name: "Title Sponsors",
-    sponsors: ["TechCorp", "Nexus Ventures", "Zepto", "Groww"],
-    size: 28,
+    name: "Strategic Partners",
+    sponsors: ["Google Cloud", "NVIDIA", "Microsoft Azure", "AWS"],
+    size: 24,
+    color: "#38bdf8",
   },
   {
-    name: "Gold",
-    sponsors: ["Postman", "Razorpay", "Setu", "AWS", "Browserstack"],
-    size: 20,
+    name: "Growth & Ecosystem Leaders",
+    sponsors: ["Postman", "Razorpay", "Zepto", "Groww", "BrowserStack"],
+    size: 18,
+    color: "#818cf8",
   },
   {
-    name: "Community",
-    sponsors: ["Dev.to", "PH", "GDSC", "ACM", "MLH", "GitHub Education"],
-    size: 15,
+    name: "Developer & Community Backers",
+    sponsors: ["Dev.to", "Product Hunt", "Hugging Face", "MLH", "GitHub Education"],
+    size: 14,
+    color: "#94a3b8",
   },
 ];
 
 export default function Sponsors() {
   return (
-    <section id="sponsors" style={{ padding: "100px 2rem", borderTop: "1px solid var(--border)" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 64 }}>
-          <p style={{ fontSize: 12, color: "var(--blue)", letterSpacing: "0.1em", marginBottom: 12, textTransform: "uppercase", fontWeight: 600 }}>
-            Sponsors
-          </p>
-          <h2 className="font-display" style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 700, letterSpacing: "-0.02em" }}>
-            Backed by the best.
+    <section id="sponsors" style={{ position: "relative", padding: "120px 2rem", borderTop: "1px solid rgba(255, 255, 255, 0.08)" }}>
+      {/* Background glow */}
+      <div className="ambient-glow glow-blue" style={{ bottom: "15%", left: "50%", transform: "translateX(-50%)", width: 600, height: 400, opacity: 0.12 }} />
+
+      <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div style={{ textAlign: "center", marginBottom: 60 }}>
+          <div style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            fontSize: 12,
+            color: "#38bdf8",
+            letterSpacing: "0.12em",
+            marginBottom: 14,
+            textTransform: "uppercase",
+            fontWeight: 700,
+            background: "rgba(56, 189, 248, 0.08)",
+            padding: "4px 14px",
+            borderRadius: 100,
+            border: "1px solid rgba(56, 189, 248, 0.2)",
+          }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#38bdf8" }} />
+            Industry Support
+          </div>
+          <h2 className="font-display" style={{ fontSize: "clamp(34px, 5vw, 56px)", fontWeight: 800, letterSpacing: "-0.03em" }}>
+            Backed by <span className="text-gradient">the world's best.</span>
           </h2>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
           {tiers.map(tier => (
             <div key={tier.name}>
               <div style={{
-                fontSize: 11,
-                color: "var(--muted)",
+                fontSize: 12,
+                color: "#64748b",
                 textAlign: "center",
                 marginBottom: 20,
-                letterSpacing: "0.08em",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                fontWeight: 600,
               }}>
                 {tier.name}
               </div>
@@ -47,57 +70,92 @@ export default function Sponsors() {
                 display: "flex",
                 flexWrap: "wrap",
                 justifyContent: "center",
-                gap: 12,
+                gap: 16,
               }}>
                 {tier.sponsors.map(s => (
-                  <div key={s} style={{
-                    background: "var(--surface)",
-                    border: "1px solid var(--border)",
-                    borderRadius: 8,
-                    padding: "16px 28px",
-                    fontSize: tier.size,
-                    fontWeight: 700,
-                    color: "var(--muted)",
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    letterSpacing: "-0.01em",
-                    cursor: "pointer",
-                    transition: "all 0.2s",
-                  }}
+                  <div
+                    key={s}
+                    className="glass-panel"
+                    style={{
+                      borderRadius: 12,
+                      padding: "18px 32px",
+                      fontSize: tier.size,
+                      fontWeight: 700,
+                      color: "#cbd5e1",
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      letterSpacing: "-0.02em",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
                     onMouseEnter={e => {
-                      e.currentTarget.style.borderColor = "var(--blue-dim)";
-                      e.currentTarget.style.color = "var(--text)";
+                      e.currentTarget.style.color = "#ffffff";
+                      e.currentTarget.style.borderColor = "rgba(56, 189, 248, 0.4)";
+                      e.currentTarget.style.boxShadow = "0 0 25px rgba(56, 189, 248, 0.2)";
                     }}
                     onMouseLeave={e => {
-                      e.currentTarget.style.borderColor = "var(--border)";
-                      e.currentTarget.style.color = "var(--muted)";
+                      e.currentTarget.style.color = "#cbd5e1";
+                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                      e.currentTarget.style.boxShadow = "none";
                     }}
-                  >{s}</div>
+                  >
+                    {s}
+                  </div>
                 ))}
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div style={{
-          marginTop: 64,
-          textAlign: "center",
-          padding: "40px",
-          background: "var(--surface)",
-          border: "1px solid var(--border)",
-          borderRadius: 12,
-        }}>
-          <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>Become a Sponsor</div>
-          <p style={{ color: "var(--muted)", fontSize: 14, marginBottom: 24 }}>Reach 5,000+ builders, founders, and investors in one room.</p>
-          <a href="mailto:sponsors@pulseops.dev" style={{
-            background: "var(--blue)",
-            color: "#fff",
-            padding: "12px 28px",
-            borderRadius: 8,
-            textDecoration: "none",
-            fontSize: 14,
-            fontWeight: 600,
-          }}>Get Sponsorship Deck</a>
+        {/* Sponsorship CTA Card */}
+        <div
+          className="glass-panel"
+          style={{
+            marginTop: 72,
+            textAlign: "center",
+            padding: "50px 32px",
+            borderRadius: 18,
+            border: "1px solid rgba(56, 189, 248, 0.25)",
+            background: "linear-gradient(180deg, rgba(14, 20, 36, 0.75) 0%, rgba(6, 10, 20, 0.85) 100%)",
+            boxShadow: "0 10px 40px -10px rgba(59, 130, 246, 0.2)",
+          }}
+        >
+          <h3 className="font-display" style={{ fontSize: 26, fontWeight: 700, marginBottom: 12, color: "#f8fafc" }}>
+            Partner with PulseOps AI 2025
+          </h3>
+          <p style={{ color: "#94a3b8", fontSize: 15, maxWidth: 540, margin: "0 auto 28px", lineHeight: 1.6 }}>
+            Showcase your infrastructure, recruit top builders, and position your brand directly in front of 5,000+ engineers and venture capital partners.
+          </p>
+          <a
+            href="mailto:sponsors@pulseops.dev"
+            style={{
+              background: "linear-gradient(135deg, #2563eb, #0ea5e9)",
+              color: "#fff",
+              padding: "14px 34px",
+              borderRadius: 10,
+              textDecoration: "none",
+              fontSize: 14,
+              fontWeight: 700,
+              letterSpacing: "0.02em",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              boxShadow: "0 0 25px rgba(37, 99, 235, 0.4)",
+              transition: "all 0.2s ease",
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = "scale(1.03)";
+              e.currentTarget.style.boxShadow = "0 0 35px rgba(14, 165, 233, 0.6)";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow = "0 0 25px rgba(37, 99, 235, 0.4)";
+            }}
+          >
+            <span>Request Sponsorship Prospectus</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </a>
         </div>
       </div>
     </section>

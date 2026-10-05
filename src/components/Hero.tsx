@@ -35,126 +35,196 @@ function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
 export default function Hero() {
   return (
     <section id="about" style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden" }}>
-      {/* Grid bg */}
-      <div className="grid-bg" style={{ position: "absolute", inset: 0, opacity: 0.4 }} />
+      {/* Grid bg & Lines */}
+      <div className="grid-bg" style={{ position: "absolute", inset: 0, opacity: 0.55 }} />
+      <div className="grid-lines-bg" style={{ position: "absolute", inset: 0, opacity: 0.35 }} />
 
-      {/* Blue radial glow */}
-      <div style={{
-        position: "absolute",
-        top: "20%",
+      {/* Cyber/Neon ambient glows */}
+      <div className="ambient-glow glow-blue animate-pulse-glow" style={{
+        top: "10%",
         left: "50%",
         transform: "translateX(-50%)",
-        width: 800,
+        width: 700,
+        height: 380,
+      }} />
+      <div className="ambient-glow glow-cyan" style={{
+        top: "25%",
+        left: "15%",
+        width: 450,
+        height: 350,
+      }} />
+      <div className="ambient-glow glow-purple" style={{
+        top: "30%",
+        right: "10%",
+        width: 500,
         height: 400,
-        background: "radial-gradient(ellipse, rgba(44,107,237,0.12) 0%, transparent 70%)",
-        pointerEvents: "none",
       }} />
 
-      <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto", padding: "120px 2rem 80px", width: "100%" }}>
-        {/* Eyebrow */}
+      <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto", padding: "140px 2rem 90px", width: "100%", zIndex: 1 }}>
+        {/* Eyebrow badge */}
         <div style={{
           display: "inline-flex",
           alignItems: "center",
-          gap: 8,
-          background: "var(--surface)",
-          border: "1px solid var(--border)",
+          gap: 10,
+          background: "rgba(14, 20, 36, 0.75)",
+          backdropFilter: "blur(16px)",
+          border: "1px solid rgba(56, 189, 248, 0.25)",
           borderRadius: 100,
-          padding: "6px 16px",
-          marginBottom: 40,
+          padding: "7px 18px",
+          marginBottom: 36,
+          boxShadow: "0 0 25px rgba(56, 189, 248, 0.15)",
         }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--blue)", boxShadow: "0 0 8px var(--blue)" }} />
-          <span style={{ fontSize: 12, color: "var(--muted)", letterSpacing: "0.06em" }}>
+          <span style={{ position: "relative", display: "flex", height: 8, width: 8 }}>
+            <span style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              background: "#38bdf8",
+              opacity: 0.75,
+              animation: "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite",
+            }} />
+            <span style={{
+              borderRadius: "50%",
+              height: 8,
+              width: 8,
+              background: "#0ea5e9",
+              boxShadow: "0 0 10px #38bdf8",
+            }} />
+          </span>
+          <span style={{ fontSize: 13, color: "#cbd5e1", letterSpacing: "0.04em", fontWeight: 500 }}>
             March 14–16, 2025 · Mumbai, India
+          </span>
+          <span style={{
+            fontSize: 11,
+            color: "#38bdf8",
+            background: "rgba(56, 189, 248, 0.12)",
+            padding: "2px 8px",
+            borderRadius: 100,
+            fontWeight: 600,
+          }}>
+            Registrations Live
           </span>
         </div>
 
         {/* Main headline */}
         <h1 className="font-display" style={{
-          fontSize: "clamp(48px, 8vw, 96px)",
-          fontWeight: 700,
-          lineHeight: 1.0,
-          letterSpacing: "-0.03em",
-          marginBottom: 24,
-          maxWidth: 900,
+          fontSize: "clamp(52px, 8.5vw, 102px)",
+          fontWeight: 800,
+          lineHeight: 1.02,
+          letterSpacing: "-0.035em",
+          marginBottom: 28,
+          maxWidth: 960,
         }}>
-          <span style={{ color: "var(--text)" }}>Where Builders</span>
+          <span className="text-gradient">Where Builders</span>
           <br />
-          <span style={{ color: "var(--blue)" }}>Shape Tomorrow.</span>
+          <span className="text-gradient-cyan">Shape Tomorrow.</span>
         </h1>
 
         <p style={{
-          fontSize: "clamp(16px, 2vw, 20px)",
-          color: "var(--muted)",
-          lineHeight: 1.7,
-          maxWidth: 520,
-          marginBottom: 48,
+          fontSize: "clamp(17px, 2.1vw, 21px)",
+          color: "#94a3b8",
+          lineHeight: 1.75,
+          maxWidth: 580,
+          marginBottom: 44,
+          fontWeight: 400,
         }}>
-          PulseOps Summit brings together 5,000+ founders, engineers, and investors for three days of talks, workshops, and collisions that matter.
+          PulseOps AI Summit unites 5,000+ pioneering founders, AI engineers, and visionary investors for three transformative days of deep-tech talks, live builds, and career-defining breakthroughs.
         </p>
 
-        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
           <a href="#register" style={{
-            background: "var(--blue)",
+            background: "linear-gradient(135deg, #2563eb, #06b6d4)",
             color: "#fff",
-            padding: "14px 32px",
-            borderRadius: 8,
+            padding: "16px 36px",
+            borderRadius: 10,
             textDecoration: "none",
             fontSize: 15,
             fontWeight: 600,
             display: "inline-flex",
             alignItems: "center",
-            gap: 8,
-            transition: "opacity 0.2s",
+            gap: 10,
+            boxShadow: "0 0 35px rgba(37, 99, 235, 0.45)",
+            transition: "all 0.25s ease",
           }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
-            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 0 45px rgba(6, 182, 212, 0.65)";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = "none";
+              e.currentTarget.style.boxShadow = "0 0 35px rgba(37, 99, 235, 0.45)";
+            }}
           >
-            Apply to Attend
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <span>Claim Your Summit Pass</span>
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </a>
           <a href="#speakers" style={{
-            border: "1px solid var(--border)",
-            color: "var(--text)",
-            padding: "14px 32px",
-            borderRadius: 8,
+            background: "rgba(255, 255, 255, 0.04)",
+            backdropFilter: "blur(12px)",
+            border: "1px solid rgba(255, 255, 255, 0.12)",
+            color: "#e2e8f0",
+            padding: "16px 34px",
+            borderRadius: 10,
             textDecoration: "none",
             fontSize: 15,
-            fontWeight: 500,
-            transition: "border-color 0.2s",
+            fontWeight: 600,
+            transition: "all 0.25s ease",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
           }}
-            onMouseEnter={e => (e.currentTarget.style.borderColor = "var(--muted)")}
-            onMouseLeave={e => (e.currentTarget.style.borderColor = "var(--border)")}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = "rgba(56, 189, 248, 0.5)";
+              e.currentTarget.style.background = "rgba(56, 189, 248, 0.08)";
+              e.currentTarget.style.transform = "translateY(-2px)";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.12)";
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.04)";
+              e.currentTarget.style.transform = "none";
+            }}
           >
-            View Speakers
+            Explore Speakers
           </a>
         </div>
 
         {/* Stats strip */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "1px",
-          background: "var(--border)",
-          border: "1px solid var(--border)",
-          borderRadius: 12,
-          overflow: "hidden",
-          marginTop: 80,
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: 16,
+          marginTop: 76,
         }}>
           {[
-            { value: 5000, suffix: "+", label: "Attendees" },
-            { value: 80, suffix: "+", label: "Speakers" },
-            { value: 40, suffix: "+", label: "Startups" },
-            { value: 3, suffix: " Days", label: "of Programming" },
+            { value: 5000, suffix: "+", label: "Attendees & Builders", glow: "#3b82f6" },
+            { value: 80, suffix: "+", label: "World-Class Speakers", glow: "#06b6d4" },
+            { value: 40, suffix: "+", label: "Funded Startups", glow: "#8b5cf6" },
+            { value: 3, suffix: " Days", label: "Intensive Programming", glow: "#10b981" },
           ].map(stat => (
-            <div key={stat.label} style={{
-              background: "var(--surface)",
+            <div key={stat.label} className="glass-panel" style={{
+              borderRadius: 14,
               padding: "28px 24px",
-              textAlign: "center",
+              textAlign: "left",
+              position: "relative",
+              overflow: "hidden",
             }}>
-              <div className="font-display" style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 700, color: "var(--text)", letterSpacing: "-0.02em" }}>
+              <div style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 2,
+                background: `linear-gradient(90deg, transparent, ${stat.glow}, transparent)`,
+              }} />
+              <div className="font-display" style={{
+                fontSize: "clamp(32px, 4vw, 44px)",
+                fontWeight: 800,
+                color: "#f8fafc",
+                letterSpacing: "-0.03em",
+              }}>
                 <Counter target={stat.value} suffix={stat.suffix} />
               </div>
-              <div style={{ fontSize: 13, color: "var(--muted)", marginTop: 4 }}>{stat.label}</div>
+              <div style={{ fontSize: 13, color: "#94a3b8", marginTop: 6, fontWeight: 500 }}>{stat.label}</div>
             </div>
           ))}
         </div>
