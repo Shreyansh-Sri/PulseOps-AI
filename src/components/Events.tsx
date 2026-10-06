@@ -63,17 +63,17 @@ export default function Events() {
           alignItems: "center",
           gap: 8,
           fontSize: 12,
-          color: "#38bdf8",
+          color: "#bef264",
           letterSpacing: "0.12em",
           marginBottom: 14,
           textTransform: "uppercase",
           fontWeight: 700,
-          background: "rgba(56, 189, 248, 0.08)",
+          background: "rgba(163, 230, 53, 0.08)",
           padding: "4px 12px",
           borderRadius: 100,
-          border: "1px solid rgba(56, 189, 248, 0.2)",
+          border: "1px solid rgba(163, 230, 53, 0.2)",
         }}>
-          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#38bdf8" }} />
+          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#a3e635" }} />
           Curated Agenda
         </div>
         <h2 className="font-display" style={{ fontSize: "clamp(34px, 5vw, 56px)", fontWeight: 800, letterSpacing: "-0.03em", marginBottom: 52, lineHeight: 1.1 }}>

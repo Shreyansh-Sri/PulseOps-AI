@@ -2,25 +2,29 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #06080e;
-  --bg-darker: #030407;
-  --surface: rgba(14, 18, 30, 0.7);
-  --surface-hover: rgba(22, 28, 48, 0.85);
-  --surface2: #141927;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-highlight: rgba(79, 140, 255, 0.3);
-  --primary: #3b82f6;
-  --primary-glow: rgba(59, 130, 246, 0.45);
-  --cyan: #06b6d4;
-  --cyan-glow: rgba(6, 182, 212, 0.4);
-  --purple: #8b5cf6;
-  --purple-glow: rgba(139, 92, 246, 0.35);
-  --blue: #3b82f6;
-  --blue-dim: rgba(59, 130, 246, 0.15);
-  --text: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --muted: #94a3b8;
-  --accent: #38bdf8;
+  /* Dark Olive Green with black shade */
+  --bg: #090c09;
+  --bg-darker: #050705;
+  --surface: rgba(16, 22, 17, 0.72);
+  --surface-hover: rgba(24, 34, 25, 0.88);
+  --surface2: #131a14;
+  --border: rgba(163, 190, 140, 0.12);
+  --border-highlight: rgba(138, 180, 110, 0.35);
+
+  /* Olive & Gold/Lime Accents */
+  --primary: #65a30d;
+  --primary-glow: rgba(101, 163, 13, 0.4);
+  --olive: #84cc16;
+  --olive-glow: rgba(132, 204, 22, 0.3);
+  --sage: #a3e635;
+  --sage-glow: rgba(163, 230, 53, 0.25);
+  --emerald: #10b981;
+  --emerald-glow: rgba(16, 185, 129, 0.25);
+  
+  --text: #f0f4ee;
+  --text-secondary: #d1dbcd;
+  --muted: #8d9e8b;
+  --accent: #bef264;
 }
 
 * {
@@ -42,29 +46,29 @@ body {
   overflow-x: hidden;
 }
 
-/* Futuristic ambient lighting & grid */
+/* Subtle Olive & Emerald ambient glow lighting */
 .ambient-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(130px);
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.45;
   z-index: 0;
 }
 
 .glow-blue {
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(101, 163, 13, 0.32) 0%, transparent 70%);
 }
 
 .glow-cyan {
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.28) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(132, 204, 22, 0.25) 0%, transparent 70%);
 }
 
 .glow-purple {
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, transparent 70%);
 }
 
-/* Glass card styling */
+/* Dark Olive Glass Cards */
 .glass-panel {
   background: var(--surface);
   backdrop-filter: blur(16px);
@@ -76,31 +80,31 @@ body {
 .glass-panel:hover {
   background: var(--surface-hover);
   border-color: var(--border-highlight);
-  box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(101, 163, 13, 0.2);
   transform: translateY(-2px);
 }
 
 .glass-btn {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(163, 190, 140, 0.05);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border);
   transition: all 0.25s ease;
 }
 
 .glass-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(163, 190, 140, 0.1);
+  border-color: rgba(163, 190, 140, 0.3);
 }
 
-/* Cyber text gradient */
+/* Olive gradient typography */
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 10%, #93c5fd 60%, #38bdf8 100%);
+  background: linear-gradient(135deg, #f7fee7 10%, #d9f99d 50%, #a3e635 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #818cf8 100%);
+  background: linear-gradient(135deg, #bef264 0%, #84cc16 50%, #4d7c0f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -109,24 +113,24 @@ body {
   font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Dynamic dot/grid matrix background */
+/* Dot & subtle line matrix background with dark olive tints */
 .grid-bg {
   background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    radial-gradient(rgba(163, 230, 53, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 .grid-lines-bg {
   background-image:
-    linear-gradient(rgba(59, 130, 246, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(101, 163, 13, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101, 163, 13, 0.06) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
-/* Cyber pulse animation */
+/* Ambient pulse animation */
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.05); }
 }
 
 .animate-pulse-glow {
@@ -136,6 +140,5 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 246, 0.5); }
-
+::-webkit-scrollbar-thumb { background: rgba(132, 204, 22, 0.2); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(132, 204, 22, 0.5); }

@@ -34,17 +34,17 @@ export default function Sponsors() {
             alignItems: "center",
             gap: 8,
             fontSize: 12,
-            color: "#38bdf8",
+            color: "#bef264",
             letterSpacing: "0.12em",
             marginBottom: 14,
             textTransform: "uppercase",
             fontWeight: 700,
-            background: "rgba(56, 189, 248, 0.08)",
+            background: "rgba(163, 230, 53, 0.08)",
             padding: "4px 14px",
             borderRadius: 100,
-            border: "1px solid rgba(56, 189, 248, 0.2)",
+            border: "1px solid rgba(163, 230, 53, 0.2)",
           }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#38bdf8" }} />
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#a3e635" }} />
             Industry Support
           </div>
           <h2 className="font-display" style={{ fontSize: "clamp(34px, 5vw, 56px)", fontWeight: 800, letterSpacing: "-0.03em" }}>
@@ -130,8 +130,8 @@ export default function Sponsors() {
           <a
             href="mailto:sponsors@pulseops.dev"
             style={{
-              background: "linear-gradient(135deg, #2563eb, #0ea5e9)",
-              color: "#fff",
+              background: "linear-gradient(135deg, #65a30d, #84cc16)",
+              color: "#050705",
               padding: "14px 34px",
               borderRadius: 10,
               textDecoration: "none",
@@ -141,16 +141,16 @@ export default function Sponsors() {
               display: "inline-flex",
               alignItems: "center",
               gap: 8,
-              boxShadow: "0 0 25px rgba(37, 99, 235, 0.4)",
+              boxShadow: "0 0 25px rgba(101, 163, 13, 0.4)",
               transition: "all 0.2s ease",
             }}
             onMouseEnter={e => {
               e.currentTarget.style.transform = "scale(1.03)";
-              e.currentTarget.style.boxShadow = "0 0 35px rgba(14, 165, 233, 0.6)";
+              e.currentTarget.style.boxShadow = "0 0 35px rgba(163, 230, 53, 0.6)";
             }}
             onMouseLeave={e => {
               e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "0 0 25px rgba(37, 99, 235, 0.4)";
+              e.currentTarget.style.boxShadow = "0 0 25px rgba(101, 163, 13, 0.4)";
             }}
           >
             <span>Request Sponsorship Prospectus</span>

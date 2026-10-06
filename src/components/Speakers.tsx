@@ -24,17 +24,17 @@ export default function Speakers() {
               alignItems: "center",
               gap: 8,
               fontSize: 12,
-              color: "#38bdf8",
+              color: "#bef264",
               letterSpacing: "0.12em",
               marginBottom: 14,
               textTransform: "uppercase",
               fontWeight: 700,
-              background: "rgba(56, 189, 248, 0.08)",
+              background: "rgba(163, 230, 53, 0.08)",
               padding: "4px 12px",
               borderRadius: 100,
-              border: "1px solid rgba(56, 189, 248, 0.2)",
+              border: "1px solid rgba(163, 230, 53, 0.2)",
             }}>
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#38bdf8" }} />
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#a3e635" }} />
               Keynote Lineup
             </div>
             <h2 className="font-display" style={{ fontSize: "clamp(34px, 5vw, 56px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
@@ -43,7 +43,7 @@ export default function Speakers() {
             </h2>
           </div>
           <a href="#" style={{
-            color: "#94a3b8",
+            color: "#8d9e8b",
             textDecoration: "none",
             fontSize: 14,
             fontWeight: 500,
@@ -52,18 +52,18 @@ export default function Speakers() {
             gap: 8,
             padding: "8px 18px",
             borderRadius: 8,
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            background: "rgba(255, 255, 255, 0.03)",
+            border: "1px solid rgba(163, 190, 140, 0.15)",
+            background: "rgba(163, 190, 140, 0.04)",
             backdropFilter: "blur(8px)",
             transition: "all 0.2s ease",
           }}
             onMouseEnter={e => {
-              e.currentTarget.style.color = "#fff";
-              e.currentTarget.style.borderColor = "rgba(56, 189, 248, 0.4)";
+              e.currentTarget.style.color = "#f0f4ee";
+              e.currentTarget.style.borderColor = "rgba(163, 230, 53, 0.4)";
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.color = "#94a3b8";
-              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+              e.currentTarget.style.color = "#8d9e8b";
+              e.currentTarget.style.borderColor = "rgba(163, 190, 140, 0.15)";
             }}
           >
             Full 80+ Lineup

@@ -66,20 +66,20 @@ export default function Hero() {
           display: "inline-flex",
           alignItems: "center",
           gap: 10,
-          background: "rgba(14, 20, 36, 0.75)",
+          background: "rgba(16, 22, 17, 0.8)",
           backdropFilter: "blur(16px)",
-          border: "1px solid rgba(56, 189, 248, 0.25)",
+          border: "1px solid rgba(163, 230, 53, 0.25)",
           borderRadius: 100,
           padding: "7px 18px",
           marginBottom: 36,
-          boxShadow: "0 0 25px rgba(56, 189, 248, 0.15)",
+          boxShadow: "0 0 25px rgba(132, 204, 22, 0.15)",
         }}>
           <span style={{ position: "relative", display: "flex", height: 8, width: 8 }}>
             <span style={{
               position: "absolute",
               inset: 0,
               borderRadius: "50%",
-              background: "#38bdf8",
+              background: "#a3e635",
               opacity: 0.75,
               animation: "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite",
             }} />
@@ -87,17 +87,17 @@ export default function Hero() {
               borderRadius: "50%",
               height: 8,
               width: 8,
-              background: "#0ea5e9",
-              boxShadow: "0 0 10px #38bdf8",
+              background: "#65a30d",
+              boxShadow: "0 0 10px #a3e635",
             }} />
           </span>
-          <span style={{ fontSize: 13, color: "#cbd5e1", letterSpacing: "0.04em", fontWeight: 500 }}>
+          <span style={{ fontSize: 13, color: "#d1dbcd", letterSpacing: "0.04em", fontWeight: 500 }}>
             March 14–16, 2025 · Mumbai, India
           </span>
           <span style={{
             fontSize: 11,
-            color: "#38bdf8",
-            background: "rgba(56, 189, 248, 0.12)",
+            color: "#bef264",
+            background: "rgba(163, 230, 53, 0.12)",
             padding: "2px 8px",
             borderRadius: 100,
             fontWeight: 600,
@@ -122,7 +122,7 @@ export default function Hero() {
 
         <p style={{
           fontSize: "clamp(17px, 2.1vw, 21px)",
-          color: "#94a3b8",
+          color: "#8d9e8b",
           lineHeight: 1.75,
           maxWidth: 580,
           marginBottom: 44,
@@ -133,36 +133,36 @@ export default function Hero() {
 
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
           <a href="#register" style={{
-            background: "linear-gradient(135deg, #2563eb, #06b6d4)",
-            color: "#fff",
+            background: "linear-gradient(135deg, #65a30d, #84cc16)",
+            color: "#050705",
             padding: "16px 36px",
             borderRadius: 10,
             textDecoration: "none",
             fontSize: 15,
-            fontWeight: 600,
+            fontWeight: 700,
             display: "inline-flex",
             alignItems: "center",
             gap: 10,
-            boxShadow: "0 0 35px rgba(37, 99, 235, 0.45)",
+            boxShadow: "0 0 35px rgba(101, 163, 13, 0.4)",
             transition: "all 0.25s ease",
           }}
             onMouseEnter={e => {
               e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 0 45px rgba(6, 182, 212, 0.65)";
+              e.currentTarget.style.boxShadow = "0 0 45px rgba(163, 230, 53, 0.6)";
             }}
             onMouseLeave={e => {
               e.currentTarget.style.transform = "none";
-              e.currentTarget.style.boxShadow = "0 0 35px rgba(37, 99, 235, 0.45)";
+              e.currentTarget.style.boxShadow = "0 0 35px rgba(101, 163, 13, 0.4)";
             }}
           >
             <span>Claim Your Summit Pass</span>
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </a>
           <a href="#speakers" style={{
-            background: "rgba(255, 255, 255, 0.04)",
+            background: "rgba(163, 190, 140, 0.05)",
             backdropFilter: "blur(12px)",
-            border: "1px solid rgba(255, 255, 255, 0.12)",
-            color: "#e2e8f0",
+            border: "1px solid rgba(163, 190, 140, 0.15)",
+            color: "#f0f4ee",
             padding: "16px 34px",
             borderRadius: 10,
             textDecoration: "none",
@@ -174,13 +174,13 @@ export default function Hero() {
             gap: 8,
           }}
             onMouseEnter={e => {
-              e.currentTarget.style.borderColor = "rgba(56, 189, 248, 0.5)";
-              e.currentTarget.style.background = "rgba(56, 189, 248, 0.08)";
+              e.currentTarget.style.borderColor = "rgba(163, 230, 53, 0.4)";
+              e.currentTarget.style.background = "rgba(163, 230, 53, 0.08)";
               e.currentTarget.style.transform = "translateY(-2px)";
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.12)";
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.04)";
+              e.currentTarget.style.borderColor = "rgba(163, 190, 140, 0.15)";
+              e.currentTarget.style.background = "rgba(163, 190, 140, 0.05)";
               e.currentTarget.style.transform = "none";
             }}
           >

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
 import Speakers from "@/components/Speakers";
 import Events from "@/components/Events";
 import Schedule from "@/components/Schedule";
@@ -12,7 +13,9 @@ export default function Home() {
     <>
       <Navbar />
       <main>
+        {/* Natural Narrative Flow */}
         <Hero />
+        <About />
         <Speakers />
         <Events />
         <Schedule />

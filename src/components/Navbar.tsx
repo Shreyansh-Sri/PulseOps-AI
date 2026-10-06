@@ -22,8 +22,8 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid transparent",
-        background: scrolled ? "rgba(6, 8, 14, 0.82)" : "rgba(6, 8, 14, 0.3)",
+        borderBottom: scrolled ? "1px solid rgba(163, 190, 140, 0.14)" : "1px solid transparent",
+        background: scrolled ? "rgba(9, 12, 9, 0.85)" : "rgba(9, 12, 9, 0.35)",
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -45,29 +45,19 @@ export default function Navbar() {
               width: 32,
               height: 32,
               borderRadius: 8,
-              background: "linear-gradient(135deg, #3b82f6, #06b6d4)",
+              background: "linear-gradient(135deg, #65a30d, #a3e635)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              boxShadow: "0 0 16px rgba(59, 130, 246, 0.5)",
+              boxShadow: "0 0 16px rgba(101, 163, 13, 0.45)",
             }}>
-              <span style={{ color: "#fff", fontWeight: 800, fontSize: 16 }}>⚡</span>
+              <span style={{ color: "#050705", fontWeight: 800, fontSize: 16 }}>⚡</span>
             </div>
             <div style={{ fontSize: 19, fontWeight: 700, letterSpacing: "-0.02em" }}>
-              <span style={{ color: "#fff" }}>Pulse</span>
-              <span style={{ color: "#94a3b8" }}>Ops</span>
+              <span style={{ color: "#f0f4ee" }}>Pulse</span>
+              <span style={{ color: "#8d9e8b" }}>Ops</span>
+              <span style={{ color: "#a3e635", marginLeft: 6 }}>AI</span>
             </div>
-            <span style={{
-              fontSize: 10,
-              fontWeight: 700,
-              background: "linear-gradient(90deg, #38bdf8, #818cf8)",
-              color: "#fff",
-              padding: "2px 8px",
-              borderRadius: 20,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              boxShadow: "0 0 12px rgba(56, 189, 248, 0.35)",
-            }}>AI 2025</span>
           </div>
         </Link>
 
@@ -93,33 +83,6 @@ export default function Navbar() {
               }}
             >{l}</a>
           ))}
-          <a href="#register" style={{
-            background: "linear-gradient(135deg, #2563eb, #06b6d4)",
-            color: "#fff",
-            padding: "8px 22px",
-            borderRadius: 8,
-            textDecoration: "none",
-            fontSize: 13,
-            fontWeight: 600,
-            letterSpacing: "0.02em",
-            boxShadow: "0 0 20px rgba(37, 99, 235, 0.45)",
-            transition: "all 0.25s ease",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-          }}
-            onMouseEnter={e => {
-              e.currentTarget.style.transform = "translateY(-1px) scale(1.02)";
-              e.currentTarget.style.boxShadow = "0 0 28px rgba(6, 182, 212, 0.6)";
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.transform = "none";
-              e.currentTarget.style.boxShadow = "0 0 20px rgba(37, 99, 235, 0.45)";
-            }}
-          >
-            <span>Register Now</span>
-            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-          </a>
         </div>
 
         {/* Mobile hamburger */}

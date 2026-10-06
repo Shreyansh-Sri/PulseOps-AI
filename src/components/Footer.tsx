@@ -3,16 +3,16 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer id="contact" style={{ position: "relative", borderTop: "1px solid rgba(255, 255, 255, 0.08)", padding: "80px 2rem 40px", background: "rgba(3, 4, 7, 0.95)" }}>
+    <footer id="contact" style={{ position: "relative", borderTop: "1px solid rgba(163, 190, 140, 0.12)", padding: "80px 2rem 40px", background: "rgba(5, 7, 5, 0.98)" }}>
       {/* Subtle top glow */}
       <div style={{
         position: "absolute",
         top: 0,
         left: "50%",
-        transform: "translateX(-50%)",
+        transform: "translateX(-50)",
         width: 600,
         height: 1,
-        background: "linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent)",
+        background: "linear-gradient(90deg, transparent, rgba(163, 230, 53, 0.5), transparent)",
       }} />
 
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -24,21 +24,21 @@ export default function Footer() {
                 width: 32,
                 height: 32,
                 borderRadius: 8,
-                background: "linear-gradient(135deg, #3b82f6, #06b6d4)",
+                background: "linear-gradient(135deg, #65a30d, #a3e635)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                boxShadow: "0 0 16px rgba(59, 130, 246, 0.5)",
+                boxShadow: "0 0 16px rgba(101, 163, 13, 0.45)",
               }}>
-                <span style={{ color: "#fff", fontWeight: 800, fontSize: 16 }}>⚡</span>
+                <span style={{ color: "#050705", fontWeight: 800, fontSize: 16 }}>⚡</span>
               </div>
               <div style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.02em" }}>
-                <span style={{ color: "#fff" }}>Pulse</span>
-                <span style={{ color: "#94a3b8" }}>Ops</span>
-                <span style={{ color: "#38bdf8", marginLeft: 6, fontSize: 14 }}>AI</span>
+                <span style={{ color: "#f0f4ee" }}>Pulse</span>
+                <span style={{ color: "#8d9e8b" }}>Ops</span>
+                <span style={{ color: "#a3e635", marginLeft: 6, fontSize: 16 }}>AI</span>
               </div>
             </div>
-            <p style={{ color: "#94a3b8", fontSize: 14, lineHeight: 1.7, maxWidth: 280 }}>
+            <p style={{ color: "#8d9e8b", fontSize: 14, lineHeight: 1.7, maxWidth: 280 }}>
               The flagship global conference for India's vanguard of artificial intelligence architects, operators, and bold founders.
             </p>
           </div>

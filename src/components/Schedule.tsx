@@ -69,17 +69,17 @@ export default function Schedule() {
               alignItems: "center",
               gap: 8,
               fontSize: 12,
-              color: "#38bdf8",
+              color: "#bef264",
               letterSpacing: "0.12em",
               marginBottom: 14,
               textTransform: "uppercase",
               fontWeight: 700,
-              background: "rgba(56, 189, 248, 0.08)",
+              background: "rgba(163, 230, 53, 0.08)",
               padding: "4px 12px",
               borderRadius: 100,
-              border: "1px solid rgba(56, 189, 248, 0.2)",
+              border: "1px solid rgba(163, 230, 53, 0.2)",
             }}>
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#38bdf8" }} />
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#a3e635" }} />
               Summit Program
             </div>
             <h2 className="font-display" style={{ fontSize: "clamp(34px, 5vw, 56px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
@@ -91,11 +91,11 @@ export default function Schedule() {
           <div style={{
             display: "flex",
             gap: 6,
-            background: "rgba(14, 20, 36, 0.75)",
+            background: "rgba(16, 22, 17, 0.8)",
             backdropFilter: "blur(14px)",
             padding: 5,
             borderRadius: 12,
-            border: "1px solid rgba(255, 255, 255, 0.08)",
+            border: "1px solid rgba(163, 190, 140, 0.15)",
           }}>
             {days.map((d, i) => (
               <button
@@ -103,19 +103,19 @@ export default function Schedule() {
                 onClick={() => setActive(i)}
                 style={{
                   padding: "10px 22px",
-                  background: active === i ? "linear-gradient(135deg, #2563eb, #0ea5e9)" : "transparent",
-                  color: active === i ? "#fff" : "#94a3b8",
+                  background: active === i ? "linear-gradient(135deg, #65a30d, #84cc16)" : "transparent",
+                  color: active === i ? "#050705" : "#8d9e8b",
                   border: "none",
                   borderRadius: 8,
                   cursor: "pointer",
                   fontSize: 14,
-                  fontWeight: 600,
+                  fontWeight: 700,
                   transition: "all 0.25s ease",
-                  boxShadow: active === i ? "0 4px 20px rgba(37, 99, 235, 0.45)" : "none",
+                  boxShadow: active === i ? "0 4px 20px rgba(101, 163, 13, 0.4)" : "none",
                 }}
               >
                 {d.label}
-                <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: active === i ? 0.9 : 0.6, marginTop: 2 }}>{d.date}</span>
+                <span style={{ display: "block", fontSize: 11, fontWeight: 500, opacity: active === i ? 0.9 : 0.6, marginTop: 2 }}>{d.date}</span>
               </button>
             ))}
           </div>
@@ -125,17 +125,17 @@ export default function Schedule() {
         <div style={{
           marginBottom: 36,
           padding: "14px 22px",
-          background: "rgba(56, 189, 248, 0.05)",
-          border: "1px solid rgba(56, 189, 248, 0.15)",
+          background: "rgba(163, 230, 53, 0.06)",
+          border: "1px solid rgba(163, 230, 53, 0.18)",
           borderRadius: 10,
           display: "flex",
           alignItems: "center",
           gap: 12,
         }}>
-          <span style={{ fontSize: 13, color: "#38bdf8", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+          <span style={{ fontSize: 13, color: "#bef264", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em" }}>
             Track Focus:
           </span>
-          <span style={{ fontSize: 14, color: "#e2e8f0", fontWeight: 500 }}>
+          <span style={{ fontSize: 14, color: "#f0f4ee", fontWeight: 500 }}>
             {days[active].theme}
           </span>
         </div>
