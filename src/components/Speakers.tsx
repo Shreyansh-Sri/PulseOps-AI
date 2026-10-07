@@ -4,7 +4,7 @@ const speakers = [
   { name: "Kunal Kumar", role: "Co-founder, PulseOps", topic: "Building for Bharat", initials: "KK", hue: 215, tag: "Founder Keynote" },
   { name: "Shreyansh Srivastava", role: "Co-founder, PulseOps", topic: "Scaling to 10M users", initials: "SS", hue: 260, tag: "Architecture" },
   { name: "Shraddha Tiwari", role: "Partner, Manager", topic: "What investors miss", initials: "ST", hue: 190, tag: "Venture Capital" },
-  { name: "Avni", role: "CTO, Meesho", topic: "Tech debt is a feature", initials: "AV", hue: 170, tag: "Engineering" },
+  { name: "Avni", role: "CTO, Uber", topic: "Tech debt is a feature", initials: "AV", hue: 170, tag: "Engineering" },
   { name: "Priya", role: "Founder, Nua", topic: "D2C playbook 2025", initials: "PR", hue: 280, tag: "Growth Loop" },
   { name: "Manya Kumari", role: "CEO, PhysicsWallah", topic: "EdTech at scale", initials: "MK", hue: 230, tag: "Operations" },
 ];
@@ -24,7 +24,7 @@ export default function Speakers() {
               alignItems: "center",
               gap: 8,
               fontSize: 12,
-              color: "#bef264",
+              color: "#31450eff",
               letterSpacing: "0.12em",
               marginBottom: 14,
               textTransform: "uppercase",
