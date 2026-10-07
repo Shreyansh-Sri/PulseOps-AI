@@ -100,12 +100,14 @@ body {
 .text-gradient {
   background: linear-gradient(135deg, #f7fee7 10%, #d9f99d 50%, #a3e635 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-cyan {
   background: linear-gradient(135deg, #bef264 0%, #84cc16 50%, #4d7c0f 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
