@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer id="contact" style={{ position: "relative", borderTop: "1px solid rgba(163, 190, 140, 0.12)", padding: "80px 2rem 40px", background: "rgba(5, 7, 5, 0.98)" }}>
+    <footer id="contact" style={{ position: "relative", borderTop: "1px solid rgba(101, 163, 13, 0.12)", padding: "80px 2rem 40px", background: "rgba(238, 241, 235, 0.98)" }}>
       {/* Subtle top glow */}
       <div style={{
         position: "absolute",
@@ -12,7 +12,7 @@ export default function Footer() {
         transform: "translateX(-50)",
         width: 600,
         height: 1,
-        background: "linear-gradient(90deg, transparent, rgba(163, 230, 53, 0.5), transparent)",
+        background: "linear-gradient(90deg, transparent, rgba(101, 163, 13, 0.3), transparent)",
       }} />
 
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -30,15 +30,15 @@ export default function Footer() {
                 justifyContent: "center",
                 boxShadow: "0 0 16px rgba(101, 163, 13, 0.45)",
               }}>
-                <span style={{ color: "#050705", fontWeight: 800, fontSize: 16 }}>⚡</span>
+                <span style={{ color: "#ffffff", fontWeight: 800, fontSize: 16 }}>âš¡</span>
               </div>
               <div style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.02em" }}>
-                <span style={{ color: "#f0f4ee" }}>Pulse</span>
-                <span style={{ color: "#8d9e8b" }}>Ops</span>
-                <span style={{ color: "#a3e635", marginLeft: 6, fontSize: 16 }}>AI</span>
+                <span style={{ color: "#1a2e12" }}>Pulse</span>
+                <span style={{ color: "#6b8560" }}>Ops</span>
+                <span style={{ color: "#4d7c0f", marginLeft: 6, fontSize: 16 }}>AI</span>
               </div>
             </div>
-            <p style={{ color: "#8d9e8b", fontSize: 14, lineHeight: 1.7, maxWidth: 280 }}>
+            <p style={{ color: "#6b8560", fontSize: 14, lineHeight: 1.7, maxWidth: 280 }}>
               The flagship global conference for India's vanguard of artificial intelligence architects, operators, and bold founders.
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function Footer() {
             },
           ].map(col => (
             <div key={col.title}>
-              <div style={{ fontSize: 13, color: "#f8fafc", fontWeight: 700, marginBottom: 20, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+              <div style={{ fontSize: 13, color: "#1a2e12", fontWeight: 700, marginBottom: 20, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                 {col.title}
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -82,17 +82,17 @@ export default function Footer() {
                     key={l.label}
                     href={l.href}
                     style={{
-                      color: "#94a3b8",
+                      color: "#6b8560",
                       textDecoration: "none",
                       fontSize: 14,
                       transition: "all 0.2s ease",
                     }}
                     onMouseEnter={e => {
-                      e.currentTarget.style.color = "#38bdf8";
+                      e.currentTarget.style.color = "#4d7c0f";
                       e.currentTarget.style.paddingLeft = "4px";
                     }}
                     onMouseLeave={e => {
-                      e.currentTarget.style.color = "#94a3b8";
+                      e.currentTarget.style.color = "#6b8560";
                       e.currentTarget.style.paddingLeft = "0px";
                     }}
                   >
@@ -105,7 +105,7 @@ export default function Footer() {
         </div>
 
         <div style={{
-          borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+          borderTop: "1px solid rgba(0, 0, 0, 0.06)",
           paddingTop: 28,
           display: "flex",
           justifyContent: "space-between",
@@ -113,13 +113,13 @@ export default function Footer() {
           flexWrap: "wrap",
           gap: 16,
         }}>
-          <span style={{ fontSize: 13, color: "#64748b" }}>
-            © 2025 PulseOps AI Summit. All rights reserved.
+          <span style={{ fontSize: 13, color: "#6b8560" }}>
+            Â© 2025 PulseOps AI Summit. All rights reserved.
           </span>
-          <div style={{ display: "flex", gap: 20, fontSize: 13, color: "#64748b" }}>
+          <div style={{ display: "flex", gap: 20, fontSize: 13, color: "#6b8560" }}>
             <span>Mumbai, India</span>
-            <span>·</span>
-            <span>March 14–16, 2025</span>
+            <span>Â·</span>
+            <span>March 14â€“16, 2025</span>
           </div>
         </div>
       </div>

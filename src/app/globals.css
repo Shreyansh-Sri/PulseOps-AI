@@ -2,29 +2,29 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark Olive Green with black shade */
-  --bg: #090c09;
-  --bg-darker: #050705;
-  --surface: rgba(16, 22, 17, 0.72);
-  --surface-hover: rgba(24, 34, 25, 0.88);
-  --surface2: #131a14;
-  --border: rgba(163, 190, 140, 0.12);
-  --border-highlight: rgba(138, 180, 110, 0.35);
+  /* Light Olive — clean & airy */
+  --bg: #f6f8f4;
+  --bg-darker: #eef1eb;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-hover: rgba(245, 248, 242, 0.95);
+  --surface2: #ffffff;
+  --border: rgba(101, 163, 13, 0.15);
+  --border-highlight: rgba(101, 163, 13, 0.35);
 
-  /* Olive & Gold/Lime Accents */
-  --primary: #65a30d;
-  --primary-glow: rgba(101, 163, 13, 0.4);
-  --olive: #84cc16;
-  --olive-glow: rgba(132, 204, 22, 0.3);
-  --sage: #a3e635;
-  --sage-glow: rgba(163, 230, 53, 0.25);
-  --emerald: #10b981;
-  --emerald-glow: rgba(16, 185, 129, 0.25);
-  
-  --text: #f0f4ee;
-  --text-secondary: #d1dbcd;
-  --muted: #8d9e8b;
-  --accent: #bef264;
+  /* Olive & Gold/Lime Accents — kept vibrant */
+  --primary: #4d7c0f;
+  --primary-glow: rgba(77, 124, 15, 0.2);
+  --olive: #65a30d;
+  --olive-glow: rgba(101, 163, 13, 0.15);
+  --sage: #84cc16;
+  --sage-glow: rgba(132, 204, 22, 0.12);
+  --emerald: #059669;
+  --emerald-glow: rgba(5, 150, 105, 0.12);
+
+  --text: #1a2e12;
+  --text-secondary: #3d5a2e;
+  --muted: #6b8560;
+  --accent: #4d7c0f;
 }
 
 * {
@@ -42,6 +42,7 @@ body {
   color: var(--text);
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow-x: hidden;
 }
@@ -52,60 +53,61 @@ body {
   border-radius: 50%;
   filter: blur(130px);
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.25;
   z-index: 0;
 }
 
 .glow-blue {
-  background: radial-gradient(circle, rgba(101, 163, 13, 0.32) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(101, 163, 13, 0.15) 0%, transparent 70%);
 }
 
 .glow-cyan {
-  background: radial-gradient(circle, rgba(132, 204, 22, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(132, 204, 22, 0.12) 0%, transparent 70%);
 }
 
 .glow-purple {
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.1) 0%, transparent 70%);
 }
 
-/* Dark Olive Glass Cards */
+/* Light Olive Glass Cards */
 .glass-panel {
   background: var(--surface);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-panel:hover {
   background: var(--surface-hover);
   border-color: var(--border-highlight);
-  box-shadow: 0 10px 30px -10px rgba(101, 163, 13, 0.2);
+  box-shadow: 0 8px 24px -8px rgba(77, 124, 15, 0.12);
   transform: translateY(-2px);
 }
 
 .glass-btn {
-  background: rgba(163, 190, 140, 0.05);
+  background: rgba(101, 163, 13, 0.06);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border);
   transition: all 0.25s ease;
 }
 
 .glass-btn:hover {
-  background: rgba(163, 190, 140, 0.1);
-  border-color: rgba(163, 190, 140, 0.3);
+  background: rgba(101, 163, 13, 0.1);
+  border-color: rgba(101, 163, 13, 0.3);
 }
 
 /* Olive gradient typography */
 .text-gradient {
-  background: linear-gradient(135deg, #f7fee7 10%, #d9f99d 50%, #a3e635 100%);
+  background: linear-gradient(135deg, #3d5a2e 10%, #4d7c0f 50%, #65a30d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #bef264 0%, #84cc16 50%, #4d7c0f 100%);
+  background: linear-gradient(135deg, #4d7c0f 0%, #65a30d 50%, #84cc16 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -115,10 +117,10 @@ body {
   font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Dot & subtle line matrix background with dark olive tints */
+/* Dot & subtle line matrix background with light olive tints */
 .grid-bg {
   background-image: 
-    radial-gradient(rgba(163, 230, 53, 0.08) 1px, transparent 1px);
+    radial-gradient(rgba(101, 163, 13, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
@@ -142,5 +144,5 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: rgba(132, 204, 22, 0.2); border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(132, 204, 22, 0.5); }
+::-webkit-scrollbar-thumb { background: rgba(101, 163, 13, 0.25); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(101, 163, 13, 0.45); }

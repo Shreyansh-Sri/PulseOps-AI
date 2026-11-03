@@ -22,8 +22,8 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        borderBottom: scrolled ? "1px solid rgba(163, 190, 140, 0.14)" : "1px solid transparent",
-        background: scrolled ? "rgba(9, 12, 9, 0.85)" : "rgba(9, 12, 9, 0.35)",
+        borderBottom: scrolled ? "1px solid rgba(101, 163, 13, 0.15)" : "1px solid transparent",
+        background: scrolled ? "rgba(246, 248, 244, 0.92)" : "rgba(246, 248, 244, 0.6)",
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -51,12 +51,12 @@ export default function Navbar() {
               justifyContent: "center",
               boxShadow: "0 0 16px rgba(101, 163, 13, 0.45)",
             }}>
-              <span style={{ color: "#050705", fontWeight: 800, fontSize: 16 }}>⚡</span>
+              <span style={{ color: "#ffffff", fontWeight: 800, fontSize: 16 }}>âš¡</span>
             </div>
             <div style={{ fontSize: 19, fontWeight: 700, letterSpacing: "-0.02em" }}>
-              <span style={{ color: "#f0f4ee" }}>Pulse</span>
-              <span style={{ color: "#8d9e8b" }}>Ops</span>
-              <span style={{ color: "#a3e635", marginLeft: 6 }}>AI</span>
+              <span style={{ color: "#1a2e12" }}>Pulse</span>
+              <span style={{ color: "#6b8560" }}>Ops</span>
+              <span style={{ color: "#4d7c0f", marginLeft: 6 }}>AI</span>
             </div>
           </div>
         </Link>
@@ -74,8 +74,8 @@ export default function Navbar() {
               padding: "4px 0",
             }}
               onMouseEnter={e => {
-                e.currentTarget.style.color = "#fff";
-                e.currentTarget.style.textShadow = "0 0 8px rgba(255,255,255,0.4)";
+                e.currentTarget.style.color = "#1a2e12";
+                e.currentTarget.style.textShadow = "0 0 8px rgba(77,124,15,0.2)";
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.color = "var(--muted)";
@@ -100,9 +100,9 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div style={{
-          borderTop: "1px solid rgba(255,255,255,0.08)",
+          borderTop: "1px solid rgba(0,0,0,0.06)",
           padding: "1.25rem 0",
-          background: "rgba(6, 8, 14, 0.98)",
+          background: "rgba(246, 248, 244, 0.98)",
           backdropFilter: "blur(20px)",
         }}>
           {links.map(l => (
