@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -9,7 +8,7 @@ export default function Footer() {
         position: "absolute",
         top: 0,
         left: "50%",
-        transform: "translateX(-50)",
+        transform: "translateX(-50%)",
         width: 600,
         height: 1,
         background: "linear-gradient(90deg, transparent, rgba(101, 163, 13, 0.3), transparent)",
@@ -30,7 +29,7 @@ export default function Footer() {
                 justifyContent: "center",
                 boxShadow: "0 0 16px rgba(101, 163, 13, 0.45)",
               }}>
-                <span style={{ color: "#ffffff", fontWeight: 800, fontSize: 16 }}>âš¡</span>
+                <span style={{ color: "#ffffff", fontWeight: 800, fontSize: 16 }}>⚡</span>
               </div>
               <div style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.02em" }}>
                 <span style={{ color: "#1a2e12" }}>Pulse</span>
@@ -39,27 +38,27 @@ export default function Footer() {
               </div>
             </div>
             <p style={{ color: "#6b8560", fontSize: 14, lineHeight: 1.7, maxWidth: 280 }}>
-              The flagship global conference for India's vanguard of artificial intelligence architects, operators, and bold founders.
+              AI-Powered DevOps Copilot. Detect broken CI/CD pipelines, debug Kubernetes crashes, and track cost overruns in real time.
             </p>
           </div>
 
           {[
             {
-              title: "Conference",
+              title: "Product",
               links: [
-                { label: "About Summit", href: "#about" },
-                { label: "Keynote Speakers", href: "#speakers" },
-                { label: "Event Tracks", href: "#events" },
-                { label: "Full Schedule", href: "#schedule" },
+                { label: "CI/CD Pipeline Analysis", href: "#" },
+                { label: "Kubernetes Root Cause", href: "#" },
+                { label: "Cost Anomaly Detection", href: "#" },
+                { label: "Automated Postmortems", href: "#" },
               ],
             },
             {
-              title: "Participate",
+              title: "Integrations",
               links: [
-                { label: "Claim Pass", href: "#register" },
-                { label: "Pitch at IdeaForge", href: "#events" },
-                { label: "Partner & Sponsor", href: "#sponsors" },
-                { label: "Volunteer Program", href: "#" },
+                { label: "GitLab CI/CD", href: "#" },
+                { label: "Kubernetes Clusters", href: "#" },
+                { label: "Slack Webhooks", href: "#" },
+                { label: "AWS / GCP Billing", href: "#" },
               ],
             },
             {
@@ -67,7 +66,7 @@ export default function Footer() {
               links: [
                 { label: "contact@pulseops.dev", href: "mailto:contact@pulseops.dev" },
                 { label: "X / Twitter (@PulseOpsAI)", href: "https://twitter.com" },
-                { label: "LinkedIn / PulseOps", href: "https://linkedin.com" },
+                { label: "GitHub Repository", href: "https://github.com/Shreyansh-Sri/PulseOps-AI" },
                 { label: "Discord Community", href: "#" },
               ],
             },
@@ -114,12 +113,10 @@ export default function Footer() {
           gap: 16,
         }}>
           <span style={{ fontSize: 13, color: "#6b8560" }}>
-            Â© 2025 PulseOps AI Summit. All rights reserved.
+            © {new Date().getFullYear()} PulseOps AI. All rights reserved.
           </span>
           <div style={{ display: "flex", gap: 20, fontSize: 13, color: "#6b8560" }}>
-            <span>Mumbai, India</span>
-            <span>Â·</span>
-            <span>March 14â€“16, 2025</span>
+            <span>Real-time Incident & Cost Intelligence</span>
           </div>
         </div>
       </div>

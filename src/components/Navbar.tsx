@@ -2,7 +2,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const links = ["About", "Speakers", "Events", "Schedule", "Sponsors", "Contact"];
+const links = [
+  { label: "Pipelines", href: "#pipeline" },
+  { label: "Kubernetes", href: "#kubernetes" },
+  { label: "Cost Tracking", href: "#cost" },
+  { label: "Postmortems", href: "#postmortem" },
+  { label: "Alerts", href: "#notifications" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,6 +34,7 @@ export default function Navbar() {
         WebkitBackdropFilter: "blur(16px)",
         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         padding: "0 2rem",
+        boxShadow: scrolled ? "0 1px 8px rgba(0, 0, 0, 0.05)" : "none",
       }}
     >
       <div style={{
@@ -51,7 +58,7 @@ export default function Navbar() {
               justifyContent: "center",
               boxShadow: "0 0 16px rgba(101, 163, 13, 0.45)",
             }}>
-              <span style={{ color: "#ffffff", fontWeight: 800, fontSize: 16 }}>âš¡</span>
+              <span style={{ color: "#ffffff", fontWeight: 800, fontSize: 16 }}>⚡</span>
             </div>
             <div style={{ fontSize: 19, fontWeight: 700, letterSpacing: "-0.02em" }}>
               <span style={{ color: "#1a2e12" }}>Pulse</span>
@@ -64,7 +71,7 @@ export default function Navbar() {
         {/* Desktop nav */}
         <div style={{ display: "flex", gap: "2rem", alignItems: "center" }} className="desktop-nav">
           {links.map(l => (
-            <a key={l} href={`#${l.toLowerCase()}`} style={{
+            <a key={l.label} href={l.href} style={{
               color: "var(--muted)",
               textDecoration: "none",
               fontSize: 14,
@@ -81,7 +88,7 @@ export default function Navbar() {
                 e.currentTarget.style.color = "var(--muted)";
                 e.currentTarget.style.textShadow = "none";
               }}
-            >{l}</a>
+            >{l.label}</a>
           ))}
         </div>
 
@@ -106,7 +113,7 @@ export default function Navbar() {
           backdropFilter: "blur(20px)",
         }}>
           {links.map(l => (
-            <a key={l} href={`#${l.toLowerCase()}`}
+            <a key={l.label} href={l.href}
               onClick={() => setMenuOpen(false)}
               style={{
                 display: "block",
@@ -116,7 +123,7 @@ export default function Navbar() {
                 fontSize: 15,
                 fontWeight: 500,
               }}
-            >{l}</a>
+            >{l.label}</a>
           ))}
         </div>
       )}
