@@ -119,7 +119,7 @@ body {
 
 /* Dot & subtle line matrix background with light olive tints */
 .grid-bg {
-  background-image: 
+  background-image:
     radial-gradient(rgba(101, 163, 13, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
 }
@@ -133,8 +133,17 @@ body {
 
 /* Ambient pulse animation */
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.35; transform: scale(1); }
-  50% { opacity: 0.65; transform: scale(1.05); }
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.65;
+    transform: scale(1.05);
+  }
 }
 
 .animate-pulse-glow {
@@ -142,7 +151,19 @@ body {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: rgba(101, 163, 13, 0.25); border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(101, 163, 13, 0.45); }
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(101, 163, 13, 0.25);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(101, 163, 13, 0.45);
+}
