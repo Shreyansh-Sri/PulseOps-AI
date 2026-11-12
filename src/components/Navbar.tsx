@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const links = [
-  { label: "Pipelines", href: "#pipeline" },
-  { label: "Kubernetes", href: "#kubernetes" },
-  { label: "Cost Tracking", href: "#cost" },
-  { label: "Postmortems", href: "#postmortem" },
-  { label: "Alerts", href: "#notifications" },
+  { label: "Pipelines", href: "/#pipeline" },
+  { label: "Kubernetes", href: "/#kubernetes" },
+  { label: "Cost Tracking", href: "/#cost" },
+  { label: "Postmortems", href: "/#postmortem" },
+  { label: "Alerts", href: "/#notifications" },
 ];
 
 export default function Navbar() {
@@ -71,7 +71,7 @@ export default function Navbar() {
         {/* Desktop nav */}
         <div style={{ display: "flex", gap: "2rem", alignItems: "center" }} className="desktop-nav">
           {links.map(l => (
-            <a key={l.label} href={l.href} style={{
+            <Link key={l.label} href={l.href} style={{
               color: "var(--muted)",
               textDecoration: "none",
               fontSize: 14,
@@ -88,8 +88,33 @@ export default function Navbar() {
                 e.currentTarget.style.color = "var(--muted)";
                 e.currentTarget.style.textShadow = "none";
               }}
-            >{l.label}</a>
+            >{l.label}</Link>
           ))}
+
+          <Link
+            href="/signup"
+            style={{
+              padding: "7px 18px",
+              borderRadius: "8px",
+              background: "linear-gradient(135deg, #4d7c0f, #65a30d)",
+              color: "#ffffff",
+              fontSize: 13,
+              fontWeight: 600,
+              textDecoration: "none",
+              boxShadow: "0 2px 10px rgba(101, 163, 13, 0.25)",
+              transition: "all 0.2s ease",
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = "translateY(-1px)";
+              e.currentTarget.style.boxShadow = "0 4px 14px rgba(101, 163, 13, 0.35)";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 2px 10px rgba(101, 163, 13, 0.25)";
+            }}
+          >
+            Get Started
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -113,7 +138,7 @@ export default function Navbar() {
           backdropFilter: "blur(20px)",
         }}>
           {links.map(l => (
-            <a key={l.label} href={l.href}
+            <Link key={l.label} href={l.href}
               onClick={() => setMenuOpen(false)}
               style={{
                 display: "block",
@@ -123,8 +148,26 @@ export default function Navbar() {
                 fontSize: 15,
                 fontWeight: 500,
               }}
-            >{l.label}</a>
+            >{l.label}</Link>
           ))}
+          <div style={{ paddingTop: "12px" }}>
+            <Link
+              href="/signup"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                display: "inline-block",
+                padding: "8px 20px",
+                borderRadius: "8px",
+                background: "linear-gradient(135deg, #4d7c0f, #65a30d)",
+                color: "#ffffff",
+                fontSize: 14,
+                fontWeight: 600,
+                textDecoration: "none",
+              }}
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
       )}
 
