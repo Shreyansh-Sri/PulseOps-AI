@@ -62,7 +62,7 @@ export default function Navbar() {
             </div>
             <div style={{ fontSize: 19, fontWeight: 700, letterSpacing: "-0.02em" }}>
               <span style={{ color: "#1a2e12" }}>Pulse</span>
-              <span style={{ color: "#6b8560" }}>Ops</span>
+              <span style={{ color: "#2d521dff" }}>Ops</span>
               <span style={{ color: "#4d7c0f", marginLeft: 6 }}>AI</span>
             </div>
           </div>
