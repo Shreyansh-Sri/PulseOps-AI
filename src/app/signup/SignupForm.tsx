@@ -37,7 +37,6 @@ export default function SignupForm() {
 
   return (
     <div className="min-h-screen bg-[#f8faf7] text-[#1c2e17] flex flex-col justify-between selection:bg-[#bef264] selection:text-[#1c3809] relative overflow-hidden font-sans">
-      {/* Background Architectural Grid Pattern with interactive subtle glow */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-60"
         style={{
@@ -48,8 +47,6 @@ export default function SignupForm() {
           backgroundSize: '40px 40px',
         }}
       />
-
-      {/* Gentle top atmospheric lighting */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[340px] bg-gradient-to-b from-[#65a30d]/8 via-[#84cc16]/3 to-transparent blur-3xl pointer-events-none" />
 
       {/* Navigation Header */}
@@ -79,10 +76,8 @@ export default function SignupForm() {
 
       {/* Main Grid Area */}
       <main className="w-full max-w-6xl mx-auto px-6 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start relative z-10 flex-1">
-        
-        {/* Left Editorial Section: Concrete, Interactive & Hover-Rich */}
+        {/* Left Column */}
         <div className="lg:col-span-5 flex flex-col gap-8 lg:pt-2">
-          
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#65a30d]/10 border border-[#65a30d]/20 text-[#365e14] text-xs font-mono font-medium tracking-tight hover:bg-[#65a30d]/15 hover:border-[#65a30d]/35 transition-all duration-200 cursor-default">
               <span className="w-1.5 h-1.5 rounded-full bg-[#65a30d] animate-pulse" />
@@ -98,7 +93,7 @@ export default function SignupForm() {
             </p>
           </div>
 
-          {/* Interactive Hover-Reactive Telemetry Terminal Mockup */}
+          {/* Telemetry Terminal Card */}
           <div className="group/terminal rounded-xl border border-[#1c2e17]/12 hover:border-[#65a30d]/50 bg-[#0d140b] text-[#d1dbcd] font-mono text-xs overflow-hidden shadow-lg shadow-black/5 hover:shadow-2xl hover:shadow-[#65a30d]/10 transition-all duration-300">
             <div className="px-4 py-2.5 border-b border-white/10 bg-white/5 flex items-center justify-between group-hover/terminal:bg-white/8 transition-colors duration-200">
               <div className="flex items-center gap-2 text-white/50">
@@ -143,7 +138,7 @@ export default function SignupForm() {
             </div>
           </div>
 
-          {/* What's in the Box with Interactive Hover Cards */}
+          {/* Trial Inclusions */}
           <div className="space-y-3 pt-2">
             <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[#546e4b]">
               Trial Inclusions
@@ -170,13 +165,11 @@ export default function SignupForm() {
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* Right Form Card: High Aesthetic, Precision Form with Rich Hover States */}
+        {/* Right Form Card */}
         <div className="lg:col-span-7 w-full max-w-xl mx-auto lg:max-w-none">
           <div className="bg-white/95 backdrop-blur-md border border-[#1c2e17]/12 hover:border-[#1c2e17]/25 rounded-2xl p-7 sm:p-9 shadow-sm shadow-[#1c2e17]/5 hover:shadow-xl hover:shadow-[#1c2e17]/8 transition-all duration-300 relative group/box">
-            
             {submitted ? (
               <div className="py-12 text-center space-y-4">
                 <div className="w-12 h-12 rounded-xl bg-[#65a30d]/15 text-[#365e14] mx-auto flex items-center justify-center border border-[#65a30d]/30 animate-bounce">
@@ -209,7 +202,7 @@ export default function SignupForm() {
                   </p>
                 </div>
 
-                {/* Social Auth Providers with Enhanced Hover micro-interactions */}
+                {/* Social Auth Providers */}
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   <button
                     type="button"
@@ -244,7 +237,6 @@ export default function SignupForm() {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Name & Work Email with Focus/Hover transitions */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1 group/field">
                       <label className="block text-xs font-medium text-[#2d4123] group-hover/field:text-[#142310] transition-colors">
@@ -275,7 +267,6 @@ export default function SignupForm() {
                     </div>
                   </div>
 
-                  {/* Company & Role */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1 group/field">
                       <label className="block text-xs font-medium text-[#2d4123] group-hover/field:text-[#142310] transition-colors">
@@ -309,7 +300,6 @@ export default function SignupForm() {
                     </div>
                   </div>
 
-                  {/* Team Size Pills with interactive hover lift & active glow */}
                   <div className="space-y-1.5">
                     <label className="block text-xs font-medium text-[#2d4123]">
                       Engineering Team Headcount
@@ -332,7 +322,6 @@ export default function SignupForm() {
                     </div>
                   </div>
 
-                  {/* Password Field */}
                   <div className="space-y-1 group/field">
                     <div className="flex items-center justify-between">
                       <label className="block text-xs font-medium text-[#2d4123] group-hover/field:text-[#142310] transition-colors">
@@ -360,7 +349,6 @@ export default function SignupForm() {
                     </div>
                   </div>
 
-                  {/* Terms Checkbox */}
                   <div className="pt-1">
                     <label className="flex items-start gap-2.5 cursor-pointer group/terms">
                       <input
@@ -384,7 +372,6 @@ export default function SignupForm() {
                     </label>
                   </div>
 
-                  {/* Primary CTA with Dynamic Hover & Glow Effect */}
                   <button
                     type="submit"
                     disabled={loading || !formData.agreeToTerms}
@@ -401,7 +388,6 @@ export default function SignupForm() {
                   </button>
                 </form>
 
-                {/* Clean Bottom Note */}
                 <div className="mt-6 pt-4 border-t border-[#1c2e17]/8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#546e4b] gap-2">
                   <div className="flex items-center gap-1.5 hover:text-[#142310] transition-colors cursor-default">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-ping" />
@@ -413,10 +399,9 @@ export default function SignupForm() {
             )}
           </div>
         </div>
-
       </main>
 
-      {/* Subtle Engineered Footer with Hover Links */}
+      {/* Subtle Engineered Footer */}
       <footer className="w-full border-t border-[#1c2e17]/8 bg-[#f8faf7] py-6 text-xs text-[#546e4b]">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="font-mono text-[11px]">
