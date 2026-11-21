@@ -1,5 +1,7 @@
 "use client";
 import { useState, useCallback } from "react";
+import GeminiDiagnoseModal from "./GeminiDiagnoseModal";
+import { Sparkles } from "lucide-react";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 type Severity = "critical" | "high" | "medium" | "low";
@@ -307,16 +309,41 @@ function ToastStack({ toasts, onDismiss }: { toasts: Toast[]; onDismiss: (id: nu
 }
 
 // ── Tab: Pipeline ──────────────────────────────────────────────────────────
-function PipelineTab({ onNotify }: { onNotify: (id: string, project: string, sev: Severity) => void }) {
+function PipelineTab({ onNotify, onOpenGemini }: { onNotify: (id: string, project: string, sev: Severity) => void; onOpenGemini?: (log: string, project: string, stage: string) => void }) {
   const [open, setOpen] = useState<string | null>(null);
   return (
     <div>
-      <p style={{ fontSize: 13, color: "var(--muted)", marginBottom: 16 }}>
-        GitLab CI failures — webhook ingested, LLM-diagnosed, ranked by severity.
-        <span style={{ marginLeft: 8, fontSize: 11, color: "#ef4444", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: 4, padding: "2px 8px" }}>
-          🔔 Critical/High incidents auto-alert via Slack
-        </span>
-      </p>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+        <p style={{ fontSize: 13, color: "var(--muted)", margin: 0 }}>
+          GitLab CI failures — webhook ingested, LLM-diagnosed, ranked by severity.
+          <span style={{ marginLeft: 8, fontSize: 11, color: "#ef4444", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: 4, padding: "2px 8px" }}>
+            🔔 Critical/High incidents auto-alert via Slack
+          </span>
+        </p>
+        {onOpenGemini && (
+          <button
+            type="button"
+            onClick={() => onOpenGemini("", "Custom CI/CD Service", "Docker build")}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              background: "linear-gradient(135deg, #4d7c0f, #65a30d)",
+              color: "#ffffff",
+              fontSize: 12,
+              fontWeight: 600,
+              padding: "6px 14px",
+              borderRadius: 8,
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 2px 8px rgba(101,163,13,0.25)",
+            }}
+          >
+            <Sparkles size={14} />
+            <span>Test Gemini Diagnoser</span>
+          </button>
+        )}
+      </div>
       <div style={{ border: "1px solid var(--border)", borderRadius: 8, overflow: "hidden", display: "flex", flexDirection: "column", gap: "1px", background: "var(--border)" }}>
         {pipelineEvents.map(ev => (
           <Row key={ev.id} id={ev.id} severity={ev.severity} status={ev.status}
@@ -326,7 +353,34 @@ function PipelineTab({ onNotify }: { onNotify: (id: string, project: string, sev
           >
             <DiagnosisBlock root_cause={ev.root_cause} fix={ev.fix} />
             <div style={{ marginTop: 12 }}>
-              <p style={{ fontSize: 11, color: "var(--muted)", fontWeight: 600, marginBottom: 8, letterSpacing: "0.04em" }}>Log excerpt</p>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                <p style={{ fontSize: 11, color: "var(--muted)", fontWeight: 600, margin: 0, letterSpacing: "0.04em" }}>Log excerpt</p>
+                {onOpenGemini && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenGemini(ev.log, ev.project, ev.stage);
+                    }}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 4,
+                      background: "rgba(101,163,13,0.1)",
+                      color: "#4d7c0f",
+                      border: "1px solid rgba(101,163,13,0.25)",
+                      fontSize: 11,
+                      fontWeight: 600,
+                      padding: "3px 10px",
+                      borderRadius: 6,
+                      cursor: "pointer",
+                    }}
+                  >
+                    <Sparkles size={12} />
+                    <span>Re-analyze with Gemini</span>
+                  </button>
+                )}
+              </div>
               <LogBox text={ev.log} />
             </div>
           </Row>
@@ -645,6 +699,19 @@ export default function Dashboard() {
   const [toasts, setToasts] = useState<Toast[]>([]);
   const [notifLog, setNotifLog] = useState<NotifLog[]>([]);
 
+  // Gemini modal state
+  const [geminiModalOpen, setGeminiModalOpen] = useState(false);
+  const [geminiLog, setGeminiLog] = useState("");
+  const [geminiProject, setGeminiProject] = useState("");
+  const [geminiStage, setGeminiStage] = useState("");
+
+  const handleOpenGemini = useCallback((log: string, project: string, stage: string) => {
+    setGeminiLog(log);
+    setGeminiProject(project);
+    setGeminiStage(stage);
+    setGeminiModalOpen(true);
+  }, []);
+
   const handleNotify = useCallback((incidentId: string, project: string, severity: Severity) => {
     const now = new Date();
     const sentAt = now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
@@ -755,7 +822,7 @@ export default function Dashboard() {
         </div>
 
         {/* Tab content */}
-        {tab === "pipeline"      && <PipelineTab      onNotify={handleNotify} />}
+        {tab === "pipeline"      && <PipelineTab      onNotify={handleNotify} onOpenGemini={handleOpenGemini} />}
         {tab === "kubernetes"    && <KubernetesTab    onNotify={handleNotify} />}
         {tab === "cost"          && <CostTab          onNotify={handleNotify} />}
         {tab === "postmortem"    && <PostmortemTab />}
@@ -780,6 +847,15 @@ export default function Dashboard() {
           </div>
         )}
       </div>
+
+      {/* Gemini Live Diagnoser Modal */}
+      <GeminiDiagnoseModal
+        isOpen={geminiModalOpen}
+        onClose={() => setGeminiModalOpen(false)}
+        defaultLog={geminiLog}
+        defaultProject={geminiProject}
+        defaultStage={geminiStage}
+      />
 
       {/* Toast notifications */}
       <ToastStack toasts={toasts} onDismiss={dismissToast} />
