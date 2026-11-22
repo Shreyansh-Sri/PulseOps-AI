@@ -99,9 +99,9 @@ const STA: Record<Status, { label: string; color: string }> = {
 
 // ── Notification channels config ──────────────────────────────────────────
 const CHANNELS = [
-  { id: "slack",    label: "Slack",    icon: "💬", color: "#4A154B", connected: true  },
-  { id: "email",    label: "Email",    icon: "✉️",  color: "#2563eb", connected: false },
-  { id: "telegram", label: "Telegram", icon: "✈️",  color: "#229ED9", connected: false },
+  { id: "email",    label: "Email Alerts", icon: "✉️",  color: "#16a34a", connected: true  },
+  { id: "slack",    label: "Slack",        icon: "💬", color: "#4A154B", connected: true  },
+  { id: "telegram", label: "Telegram",     icon: "✈️",  color: "#229ED9", connected: false },
 ];
 
 // ── How it works steps ────────────────────────────────────────────────────
@@ -716,12 +716,29 @@ export default function Dashboard() {
     const now = new Date();
     const sentAt = now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 
-    const toast: Toast = { id: ++toastCounter, incidentId, project, severity, channel: "Slack" };
+    // Trigger backend notification API to send Email + Slack alerts
+    fetch("/api/notify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: incidentId,
+        project,
+        stage: "Build / Runtime",
+        severity,
+        status: "open",
+        root_cause: `Automated alert triggered for ${project} incident ${incidentId}.`,
+        fix: "Check dashboard diagnostic trace and apply recommended fix.",
+        time: "Just now",
+        channel: "all",
+      }),
+    }).catch(err => console.error("Notification dispatch error:", err));
+
+    const toast: Toast = { id: ++toastCounter, incidentId, project, severity, channel: "Email & Slack" };
     setToasts(prev => [...prev, toast]);
     setTimeout(() => setToasts(prev => prev.filter(t => t.id !== toast.id)), 5000);
 
     setNotifLog(prev => [{
-      id: ++logCounter, incidentId, project, severity, channel: "💬 Slack #pipeline-alerts", sentAt,
+      id: ++logCounter, incidentId, project, severity, channel: "✉️ Email & 💬 Slack", sentAt,
     }, ...prev]);
   }, []);
 
@@ -764,10 +781,10 @@ export default function Dashboard() {
             background: "rgba(101,163,13,0.08)", border: "1px solid rgba(101,163,13,0.25)",
             borderRadius: 8, padding: "8px 14px", flexShrink: 0,
           }}>
-            <span style={{ fontSize: 14 }}>🔔</span>
+            <span style={{ fontSize: 14 }}>✉️</span>
             <div>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "#65a30d" }}>Slack Alerts Active</div>
-              <div style={{ fontSize: 10, color: "var(--muted)" }}>Critical &amp; High → #pipeline-alerts</div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: "#4d7c0f" }}>Email &amp; Slack Alerts Active</div>
+              <div style={{ fontSize: 10, color: "var(--muted)" }}>Instant dispatch on Critical &amp; High issues</div>
             </div>
             <span style={{
               width: 8, height: 8, borderRadius: "50%", background: "#65a30d",
