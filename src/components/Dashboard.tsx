@@ -1,7 +1,8 @@
 "use client";
 import { useState, useCallback } from "react";
 import GeminiDiagnoseModal from "./GeminiDiagnoseModal";
-import { Sparkles } from "lucide-react";
+import LogInspectorDrawer from "./LogInspectorDrawer";
+import { Sparkles, Terminal } from "lucide-react";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 type Severity = "critical" | "high" | "medium" | "low";
@@ -229,12 +230,13 @@ function NotifyBtn({
 // ── Row component ──────────────────────────────────────────────────────────
 function Row({
   id, severity, status, title, meta, expanded, onClick,
-  onNotify, children,
+  onNotify, onInspect, children,
 }: {
   id: string; severity: Severity; status: Status;
   title: string; meta: string; expanded: boolean;
   onClick: () => void;
   onNotify: (incidentId: string, project: string, severity: Severity) => void;
+  onInspect?: () => void;
   children: React.ReactNode;
 }) {
   const sev = SEV[severity];
@@ -252,6 +254,31 @@ function Row({
           <div style={{ fontSize: 12, color: "var(--muted, #6b8560)", marginTop: 2 }}>{meta}</div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+          {onInspect && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onInspect();
+              }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 5,
+                background: "rgba(101,163,13,0.08)",
+                border: "1px solid rgba(101,163,13,0.25)",
+                color: "#4d7c0f",
+                fontSize: 11,
+                fontWeight: 600,
+                padding: "4px 10px",
+                borderRadius: 6,
+                cursor: "pointer",
+              }}
+            >
+              <Terminal size={12} />
+              <span>Inspect Logs &amp; AI</span>
+            </button>
+          )}
           <NotifyBtn incidentId={id} project={title} severity={severity} onNotify={onNotify} />
           <SevBadge sev={severity} />
           <StatusDot status={status} />
@@ -309,7 +336,15 @@ function ToastStack({ toasts, onDismiss }: { toasts: Toast[]; onDismiss: (id: nu
 }
 
 // ── Tab: Pipeline ──────────────────────────────────────────────────────────
-function PipelineTab({ onNotify, onOpenGemini }: { onNotify: (id: string, project: string, sev: Severity) => void; onOpenGemini?: (log: string, project: string, stage: string) => void }) {
+function PipelineTab({ 
+  onNotify, 
+  onOpenGemini,
+  onInspect,
+}: { 
+  onNotify: (id: string, project: string, sev: Severity) => void; 
+  onOpenGemini?: (log: string, project: string, stage: string) => void;
+  onInspect?: (incident: typeof pipelineEvents[0]) => void;
+}) {
   const [open, setOpen] = useState<string | null>(null);
   return (
     <div>
@@ -317,7 +352,7 @@ function PipelineTab({ onNotify, onOpenGemini }: { onNotify: (id: string, projec
         <p style={{ fontSize: 13, color: "var(--muted)", margin: 0 }}>
           GitLab CI failures — webhook ingested, LLM-diagnosed, ranked by severity.
           <span style={{ marginLeft: 8, fontSize: 11, color: "#ef4444", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: 4, padding: "2px 8px" }}>
-            🔔 Critical/High incidents auto-alert via Slack
+            🔔 Critical/High incidents auto-alert via Slack &amp; Email
           </span>
         </p>
         {onOpenGemini && (
@@ -350,36 +385,64 @@ function PipelineTab({ onNotify, onOpenGemini }: { onNotify: (id: string, projec
             title={ev.project} meta={`${ev.stage} · ${ev.time}`}
             expanded={open === ev.id} onClick={() => setOpen(open === ev.id ? null : ev.id)}
             onNotify={onNotify}
+            onInspect={onInspect ? () => onInspect(ev) : undefined}
           >
             <DiagnosisBlock root_cause={ev.root_cause} fix={ev.fix} />
             <div style={{ marginTop: 12 }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                 <p style={{ fontSize: 11, color: "var(--muted)", fontWeight: 600, margin: 0, letterSpacing: "0.04em" }}>Log excerpt</p>
-                {onOpenGemini && (
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onOpenGemini(ev.log, ev.project, ev.stage);
-                    }}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: 4,
-                      background: "rgba(101,163,13,0.1)",
-                      color: "#4d7c0f",
-                      border: "1px solid rgba(101,163,13,0.25)",
-                      fontSize: 11,
-                      fontWeight: 600,
-                      padding: "3px 10px",
-                      borderRadius: 6,
-                      cursor: "pointer",
-                    }}
-                  >
-                    <Sparkles size={12} />
-                    <span>Re-analyze with Gemini</span>
-                  </button>
-                )}
+                <div style={{ display: "flex", gap: 8 }}>
+                  {onInspect && (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onInspect(ev);
+                      }}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 4,
+                        background: "rgba(101,163,13,0.15)",
+                        color: "#2d5a1b",
+                        border: "1px solid rgba(101,163,13,0.3)",
+                        fontSize: 11,
+                        fontWeight: 600,
+                        padding: "3px 10px",
+                        borderRadius: 6,
+                        cursor: "pointer",
+                      }}
+                    >
+                      <Terminal size={12} />
+                      <span>Open Full Inspector &amp; Chat</span>
+                    </button>
+                  )}
+                  {onOpenGemini && (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onOpenGemini(ev.log, ev.project, ev.stage);
+                      }}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 4,
+                        background: "rgba(101,163,13,0.1)",
+                        color: "#4d7c0f",
+                        border: "1px solid rgba(101,163,13,0.25)",
+                        fontSize: 11,
+                        fontWeight: 600,
+                        padding: "3px 10px",
+                        borderRadius: 6,
+                        cursor: "pointer",
+                      }}
+                    >
+                      <Sparkles size={12} />
+                      <span>Quick Diagnose</span>
+                    </button>
+                  )}
+                </div>
               </div>
               <LogBox text={ev.log} />
             </div>
@@ -391,14 +454,20 @@ function PipelineTab({ onNotify, onOpenGemini }: { onNotify: (id: string, projec
 }
 
 // ── Tab: Kubernetes ────────────────────────────────────────────────────────
-function KubernetesTab({ onNotify }: { onNotify: (id: string, project: string, sev: Severity) => void }) {
+function KubernetesTab({ 
+  onNotify, 
+  onInspect,
+}: { 
+  onNotify: (id: string, project: string, sev: Severity) => void;
+  onInspect?: (incident: { id: string; project: string; stage: string; severity: Severity; status: Status; root_cause: string; fix: string; log: string }) => void;
+}) {
   const [open, setOpen] = useState<string | null>(null);
   return (
     <div>
       <p style={{ fontSize: 13, color: "var(--muted)", marginBottom: 16 }}>
         Pod crash states — read via Kubernetes API, translated to plain English.
         <span style={{ marginLeft: 8, fontSize: 11, color: "#f97316", background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.2)", borderRadius: 4, padding: "2px 8px" }}>
-          🔔 High severity pods alert via Slack
+          🔔 High severity pods alert via Slack &amp; Email
         </span>
       </p>
       <div style={{ border: "1px solid var(--border)", borderRadius: 8, overflow: "hidden", display: "flex", flexDirection: "column", gap: "1px", background: "var(--border)" }}>
@@ -407,10 +476,56 @@ function KubernetesTab({ onNotify }: { onNotify: (id: string, project: string, s
             title={ev.pod} meta={`${ev.state} · ${ev.namespace} · ${ev.time}`}
             expanded={open === ev.id} onClick={() => setOpen(open === ev.id ? null : ev.id)}
             onNotify={onNotify}
+            onInspect={onInspect ? () => onInspect({
+              id: ev.id,
+              project: ev.pod,
+              stage: `${ev.state} (${ev.namespace})`,
+              severity: ev.severity,
+              status: ev.status,
+              root_cause: ev.root_cause,
+              fix: ev.fix,
+              log: ev.log,
+            }) : undefined}
           >
             <DiagnosisBlock root_cause={ev.root_cause} fix={ev.fix} />
             <div style={{ marginTop: 12 }}>
-              <p style={{ fontSize: 11, color: "var(--muted)", fontWeight: 600, marginBottom: 8, letterSpacing: "0.04em" }}>kubectl output</p>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                <p style={{ fontSize: 11, color: "var(--muted)", fontWeight: 600, margin: 0, letterSpacing: "0.04em" }}>kubectl output</p>
+                {onInspect && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onInspect({
+                        id: ev.id,
+                        project: ev.pod,
+                        stage: `${ev.state} (${ev.namespace})`,
+                        severity: ev.severity,
+                        status: ev.status,
+                        root_cause: ev.root_cause,
+                        fix: ev.fix,
+                        log: ev.log,
+                      });
+                    }}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 4,
+                      background: "rgba(101,163,13,0.15)",
+                      color: "#2d5a1b",
+                      border: "1px solid rgba(101,163,13,0.3)",
+                      fontSize: 11,
+                      fontWeight: 600,
+                      padding: "3px 10px",
+                      borderRadius: 6,
+                      cursor: "pointer",
+                    }}
+                  >
+                    <Terminal size={12} />
+                    <span>Open Inspector &amp; Chat</span>
+                  </button>
+                )}
+              </div>
               <LogBox text={ev.log} />
             </div>
           </Row>
@@ -705,6 +820,33 @@ export default function Dashboard() {
   const [geminiProject, setGeminiProject] = useState("");
   const [geminiStage, setGeminiStage] = useState("");
 
+  // Log Inspector Drawer state
+  const [inspectorOpen, setInspectorOpen] = useState(false);
+  const [inspectorIncident, setInspectorIncident] = useState<{
+    id: string;
+    project: string;
+    stage: string;
+    severity: Severity;
+    status: Status;
+    root_cause: string;
+    fix: string;
+    log: string;
+  } | null>(null);
+
+  const handleInspect = useCallback((incident: {
+    id: string;
+    project: string;
+    stage: string;
+    severity: Severity;
+    status: Status;
+    root_cause: string;
+    fix: string;
+    log: string;
+  }) => {
+    setInspectorIncident(incident);
+    setInspectorOpen(true);
+  }, []);
+
   const handleOpenGemini = useCallback((log: string, project: string, stage: string) => {
     setGeminiLog(log);
     setGeminiProject(project);
@@ -839,8 +981,8 @@ export default function Dashboard() {
         </div>
 
         {/* Tab content */}
-        {tab === "pipeline"      && <PipelineTab      onNotify={handleNotify} onOpenGemini={handleOpenGemini} />}
-        {tab === "kubernetes"    && <KubernetesTab    onNotify={handleNotify} />}
+        {tab === "pipeline"      && <PipelineTab      onNotify={handleNotify} onOpenGemini={handleOpenGemini} onInspect={handleInspect} />}
+        {tab === "kubernetes"    && <KubernetesTab    onNotify={handleNotify} onInspect={handleInspect} />}
         {tab === "cost"          && <CostTab          onNotify={handleNotify} />}
         {tab === "postmortem"    && <PostmortemTab />}
         {tab === "notifications" && <NotificationsTab log={notifLog} />}
@@ -872,6 +1014,18 @@ export default function Dashboard() {
         defaultLog={geminiLog}
         defaultProject={geminiProject}
         defaultStage={geminiStage}
+      />
+
+      {/* Interactive Log Inspector & AI Troubleshooter Drawer */}
+      <LogInspectorDrawer
+        isOpen={inspectorOpen}
+        onClose={() => setInspectorOpen(false)}
+        incident={inspectorIncident}
+        onApplyFix={(fixText) => {
+          if (inspectorIncident) {
+            handleNotify(inspectorIncident.id, `${inspectorIncident.project} (Fix Applied)`, inspectorIncident.severity);
+          }
+        }}
       />
 
       {/* Toast notifications */}
