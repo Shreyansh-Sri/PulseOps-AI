@@ -28,13 +28,13 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        borderBottom: scrolled ? "1px solid rgba(101, 163, 13, 0.15)" : "1px solid transparent",
-        background: scrolled ? "rgba(246, 248, 244, 0.92)" : "rgba(246, 248, 244, 0.6)",
+        borderBottom: scrolled ? "1px solid rgba(101, 163, 13, 0.25)" : "1px solid transparent",
+        background: scrolled ? "rgba(9, 13, 8, 0.92)" : "rgba(9, 13, 8, 0.65)",
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         padding: "0 2rem",
-        boxShadow: scrolled ? "0 1px 8px rgba(0, 0, 0, 0.05)" : "none",
+        boxShadow: scrolled ? "0 4px 20px rgba(0, 0, 0, 0.4)" : "none",
       }}
     >
       <div style={{
@@ -61,9 +61,9 @@ export default function Navbar() {
               <span style={{ color: "#ffffff", fontWeight: 800, fontSize: 16 }}>⚡</span>
             </div>
             <div style={{ fontSize: 19, fontWeight: 700, letterSpacing: "-0.02em" }}>
-              <span style={{ color: "#1a2e12" }}>Pulse</span>
-              <span style={{ color: "#2d521dff" }}>Ops</span>
-              <span style={{ color: "#4d7c0f", marginLeft: 6 }}>AI</span>
+              <span style={{ color: "var(--text)" }}>Pulse</span>
+              <span style={{ color: "#a3e635" }}>Ops</span>
+              <span style={{ color: "#84cc16", marginLeft: 6 }}>AI</span>
             </div>
           </div>
         </Link>
@@ -81,8 +81,8 @@ export default function Navbar() {
               padding: "4px 0",
             }}
               onMouseEnter={e => {
-                e.currentTarget.style.color = "#1a2e12";
-                e.currentTarget.style.textShadow = "0 0 8px rgba(77,124,15,0.2)";
+                e.currentTarget.style.color = "var(--text)";
+                e.currentTarget.style.textShadow = "0 0 10px rgba(163,230,53,0.3)";
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.color = "var(--muted)";

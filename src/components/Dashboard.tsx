@@ -139,8 +139,8 @@ function LogBox({ text }: { text: string }) {
   return (
     <pre style={{
       fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-      fontSize: 12, color: "#3d5a2e",
-      background: "var(--bg-darker, #eef1eb)",
+      fontSize: 12, color: "#86efac",
+      background: "#050804",
       border: "1px solid var(--border)",
       borderRadius: 6, padding: "12px 16px",
       overflowX: "auto", lineHeight: 1.75,
@@ -152,13 +152,13 @@ function LogBox({ text }: { text: string }) {
 function DiagnosisBlock({ root_cause, fix }: { root_cause: string; fix: string }) {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 12 }}>
-      <div style={{ background: "var(--bg-darker, #eef1eb)", border: "1px solid var(--border)", borderRadius: 6, padding: "14px 16px" }}>
-        <p style={{ fontSize: 11, color: "var(--primary, #65a30d)", fontWeight: 600, marginBottom: 8, letterSpacing: "0.04em" }}>Root cause</p>
-        <p style={{ fontSize: 13, color: "var(--text-secondary, #3d5a2e)", lineHeight: 1.65 }}>{root_cause}</p>
+      <div style={{ background: "var(--bg-darker, #0d140b)", border: "1px solid var(--border)", borderRadius: 6, padding: "14px 16px" }}>
+        <p style={{ fontSize: 11, color: "var(--primary, #84cc16)", fontWeight: 600, marginBottom: 8, letterSpacing: "0.04em" }}>Root cause</p>
+        <p style={{ fontSize: 13, color: "var(--text-secondary, #c2d6b8)", lineHeight: 1.65 }}>{root_cause}</p>
       </div>
-      <div style={{ background: "var(--bg-darker, #eef1eb)", border: "1px solid var(--border)", borderRadius: 6, padding: "14px 16px" }}>
-        <p style={{ fontSize: 11, color: "#10b981", fontWeight: 600, marginBottom: 8, letterSpacing: "0.04em" }}>Suggested fix</p>
-        <p style={{ fontSize: 13, color: "var(--text-secondary, #3d5a2e)", lineHeight: 1.65 }}>{fix}</p>
+      <div style={{ background: "var(--bg-darker, #0d140b)", border: "1px solid var(--border)", borderRadius: 6, padding: "14px 16px" }}>
+        <p style={{ fontSize: 11, color: "#34d399", fontWeight: 600, marginBottom: 8, letterSpacing: "0.04em" }}>Suggested fix</p>
+        <p style={{ fontSize: 13, color: "var(--text-secondary, #c2d6b8)", lineHeight: 1.65 }}>{fix}</p>
       </div>
     </div>
   );
@@ -241,17 +241,17 @@ function Row({
 }) {
   const sev = SEV[severity];
   return (
-    <div style={{ borderLeft: `3px solid ${sev.bar}`, background: expanded ? "var(--surface2, #ffffff)" : "var(--bg, #f6f8f4)", transition: "background 0.15s" }}>
+    <div style={{ borderLeft: `3px solid ${sev.bar}`, background: expanded ? "var(--surface2, #131c10)" : "var(--bg, #090d08)", transition: "background 0.15s" }}>
       <div
         onClick={onClick}
         style={{ padding: "16px 20px", display: "flex", alignItems: "center", gap: 16, cursor: "pointer" }}
-        onMouseEnter={e => (e.currentTarget.style.background = "var(--surface, rgba(255,255,255,0.82))")}
+        onMouseEnter={e => (e.currentTarget.style.background = "var(--surface, rgba(18,27,15,0.75))")}
         onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
       >
         <span style={{ fontFamily: "monospace", fontSize: 11, color: sev.dot, fontWeight: 700, flexShrink: 0, width: 60 }}>{id}</span>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontWeight: 600, fontSize: 14, color: "var(--text, #1a2e12)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{title}</div>
-          <div style={{ fontSize: 12, color: "var(--muted, #6b8560)", marginTop: 2 }}>{meta}</div>
+          <div style={{ fontWeight: 600, fontSize: 14, color: "var(--text, #f1f5ee)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{title}</div>
+          <div style={{ fontSize: 12, color: "var(--muted, #86a37b)", marginTop: 2 }}>{meta}</div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
           {onInspect && (
@@ -265,9 +265,9 @@ function Row({
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 5,
-                background: "rgba(101,163,13,0.08)",
-                border: "1px solid rgba(101,163,13,0.25)",
-                color: "#4d7c0f",
+                background: "rgba(132,204,22,0.12)",
+                border: "1px solid rgba(132,204,22,0.3)",
+                color: "#bef264",
                 fontSize: 11,
                 fontWeight: 600,
                 padding: "4px 10px",
@@ -282,7 +282,7 @@ function Row({
           <NotifyBtn incidentId={id} project={title} severity={severity} onNotify={onNotify} />
           <SevBadge sev={severity} />
           <StatusDot status={status} />
-          <span style={{ fontSize: 16, color: "var(--muted, #6b8560)", marginLeft: 4, transform: expanded ? "rotate(90deg)" : "none", transition: "transform 0.2s", display: "inline-block" }}>›</span>
+          <span style={{ fontSize: 16, color: "var(--muted, #86a37b)", marginLeft: 4, transform: expanded ? "rotate(90deg)" : "none", transition: "transform 0.2s", display: "inline-block" }}>›</span>
         </div>
       </div>
       {expanded && (
@@ -300,13 +300,13 @@ function ToastStack({ toasts, onDismiss }: { toasts: Toast[]; onDismiss: (id: nu
     <div style={{ position: "fixed", bottom: 24, right: 24, display: "flex", flexDirection: "column", gap: 10, zIndex: 999 }}>
       {toasts.map(t => (
         <div key={t.id} style={{
-          background: "var(--surface2, #ffffff)",
+          background: "var(--surface2, #131c10)",
           border: "1px solid rgba(239,68,68,0.3)",
           borderLeft: "3px solid #ef4444",
           borderRadius: 8, padding: "14px 18px",
           minWidth: 300, maxWidth: 380,
           display: "flex", gap: 12, alignItems: "flex-start",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
           animation: "slideIn 0.3s cubic-bezier(0.16,1,0.3,1)",
         }}>
           <span style={{ fontSize: 18, flexShrink: 0 }}>🔔</span>
@@ -403,9 +403,9 @@ function PipelineTab({
                         display: "inline-flex",
                         alignItems: "center",
                         gap: 4,
-                        background: "rgba(101,163,13,0.15)",
-                        color: "#2d5a1b",
-                        border: "1px solid rgba(101,163,13,0.3)",
+                        background: "rgba(132,204,22,0.15)",
+                        color: "#bef264",
+                        border: "1px solid rgba(132,204,22,0.3)",
                         fontSize: 11,
                         fontWeight: 600,
                         padding: "3px 10px",
@@ -511,9 +511,9 @@ function KubernetesTab({
                       display: "inline-flex",
                       alignItems: "center",
                       gap: 4,
-                      background: "rgba(101,163,13,0.15)",
-                      color: "#2d5a1b",
-                      border: "1px solid rgba(101,163,13,0.3)",
+                      background: "rgba(132,204,22,0.15)",
+                      color: "#bef264",
+                      border: "1px solid rgba(132,204,22,0.3)",
                       fontSize: 11,
                       fontWeight: 600,
                       padding: "3px 10px",
@@ -889,7 +889,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", paddingTop: 64, background: "var(--bg, #f6f8f4)" }}>
+    <div style={{ minHeight: "100vh", paddingTop: 64, background: "var(--bg, #090d08)" }}>
 
       {/* Top summary strip */}
       <div style={{ borderBottom: "1px solid var(--border)", background: "var(--surface)" }}>

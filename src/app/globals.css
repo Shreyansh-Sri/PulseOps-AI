@@ -2,29 +2,29 @@
 @import "tailwindcss";
 
 :root {
-  /* Light Olive — clean & airy */
-  --bg: #f6f8f4;
-  --bg-darker: #eef1eb;
-  --surface: rgba(255, 255, 255, 0.82);
-  --surface-hover: rgba(245, 248, 242, 0.95);
-  --surface2: #ffffff;
-  --border: rgba(101, 163, 13, 0.15);
-  --border-highlight: rgba(101, 163, 13, 0.35);
+  /* Dark Cyber-Ops / SRE Terminal Palette */
+  --bg: #090d08;
+  --bg-darker: #0d140b;
+  --surface: rgba(18, 27, 15, 0.75);
+  --surface-hover: rgba(26, 38, 21, 0.9);
+  --surface2: #131c10;
+  --border: rgba(101, 163, 13, 0.22);
+  --border-highlight: rgba(132, 204, 22, 0.45);
 
-  /* Olive & Gold/Lime Accents — kept vibrant */
-  --primary: #4d7c0f;
-  --primary-glow: rgba(77, 124, 15, 0.2);
-  --olive: #65a30d;
-  --olive-glow: rgba(101, 163, 13, 0.15);
-  --sage: #84cc16;
-  --sage-glow: rgba(132, 204, 22, 0.12);
-  --emerald: #059669;
-  --emerald-glow: rgba(5, 150, 105, 0.12);
+  /* Olive & Lime Neon Accents */
+  --primary: #84cc16;
+  --primary-glow: rgba(132, 204, 22, 0.25);
+  --olive: #a3e635;
+  --olive-glow: rgba(163, 230, 53, 0.2);
+  --sage: #bef264;
+  --sage-glow: rgba(190, 242, 100, 0.15);
+  --emerald: #10b981;
+  --emerald-glow: rgba(16, 185, 129, 0.2);
 
-  --text: #13230dff;
-  --text-secondary: #3d5a2e;
-  --muted: #6b8560;
-  --accent: #447307;
+  --text: #f1f5ee;
+  --text-secondary: #c2d6b8;
+  --muted: #86a37b;
+  --accent: #a3e635;
 }
 
 * {
@@ -100,14 +100,14 @@ body {
 
 /* Olive gradient typography */
 .text-gradient {
-  background: linear-gradient(135deg, #3d5a2e 10%, #4d7c0f 50%, #65a30d 100%);
+  background: linear-gradient(135deg, #f1f5ee 10%, #bef264 60%, #84cc16 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #4d7c0f 0%, #65a30d 50%, #84cc16 100%);
+  background: linear-gradient(135deg, #a3e635 0%, #4ade80 50%, #38bdf8 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

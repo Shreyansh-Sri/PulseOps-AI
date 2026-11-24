@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer id="contact" style={{ position: "relative", borderTop: "1px solid rgba(101, 163, 13, 0.12)", padding: "80px 2rem 40px", background: "rgba(238, 241, 235, 0.98)" }}>
+    <footer id="contact" style={{ position: "relative", borderTop: "1px solid var(--border)", padding: "80px 2rem 40px", background: "var(--bg-darker)" }}>
       {/* Subtle top glow */}
       <div style={{
         position: "absolute",
@@ -11,7 +11,7 @@ export default function Footer() {
         transform: "translateX(-50%)",
         width: 600,
         height: 1,
-        background: "linear-gradient(90deg, transparent, rgba(101, 163, 13, 0.3), transparent)",
+        background: "linear-gradient(90deg, transparent, rgba(163, 230, 53, 0.4), transparent)",
       }} />
 
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -32,12 +32,12 @@ export default function Footer() {
                 <span style={{ color: "#ffffff", fontWeight: 800, fontSize: 16 }}>⚡</span>
               </div>
               <div style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.02em" }}>
-                <span style={{ color: "#1a2e12" }}>Pulse</span>
-                <span style={{ color: "#6b8560" }}>Ops</span>
-                <span style={{ color: "#4d7c0f", marginLeft: 6, fontSize: 16 }}>AI</span>
+                <span style={{ color: "var(--text)" }}>Pulse</span>
+                <span style={{ color: "#a3e635" }}>Ops</span>
+                <span style={{ color: "#84cc16", marginLeft: 6, fontSize: 16 }}>AI</span>
               </div>
             </div>
-            <p style={{ color: "#6b8560", fontSize: 14, lineHeight: 1.7, maxWidth: 280 }}>
+            <p style={{ color: "var(--muted)", fontSize: 14, lineHeight: 1.7, maxWidth: 280 }}>
               AI-Powered DevOps Copilot. Detect broken CI/CD pipelines, debug Kubernetes crashes, and track cost overruns in real time.
             </p>
           </div>
@@ -72,7 +72,7 @@ export default function Footer() {
             },
           ].map(col => (
             <div key={col.title}>
-              <div style={{ fontSize: 13, color: "#1a2e12", fontWeight: 700, marginBottom: 20, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+              <div style={{ fontSize: 13, color: "var(--text)", fontWeight: 700, marginBottom: 20, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                 {col.title}
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -81,17 +81,17 @@ export default function Footer() {
                     key={l.label}
                     href={l.href}
                     style={{
-                      color: "#6b8560",
+                      color: "var(--muted)",
                       textDecoration: "none",
                       fontSize: 14,
                       transition: "all 0.2s ease",
                     }}
                     onMouseEnter={e => {
-                      e.currentTarget.style.color = "#4d7c0f";
+                      e.currentTarget.style.color = "#84cc16";
                       e.currentTarget.style.paddingLeft = "4px";
                     }}
                     onMouseLeave={e => {
-                      e.currentTarget.style.color = "#6b8560";
+                      e.currentTarget.style.color = "var(--muted)";
                       e.currentTarget.style.paddingLeft = "0px";
                     }}
                   >
