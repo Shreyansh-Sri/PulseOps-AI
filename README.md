@@ -3,6 +3,29 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+**Prerequisites**
+- Node.js (v18+)
+- Git
+- A Google Gemini API key (set `GEMINI_API_KEY` in `.env.local`)
+
+**Running the project**
+```bash
+npm install
+npm run dev   # or pnpm dev, yarn dev, bun dev
+```
+
+Open http://localhost:3000 in your browser.
+
+**Project Highlights**
+- Dark‑shade cyber‑ops theme using CSS variables.
+- Custom error page (`src/app/error.tsx`) and 404 page (`src/app/not-found.tsx`).
+- Interactive Log Inspector with Gemini AI diagnostics.
+- Gemini API integration (requires `GEMINI_API_KEY`).
+
+For more details see the components folder.
+
+## Learn More
+
 First, run the development server:
 
 
